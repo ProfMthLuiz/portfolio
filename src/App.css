@@ -1,0 +1,14 @@
+.skills {
+  width: 125px;
+  padding: 5px 20px;
+  border-radius: 30px;
+  border: 1px solid #000;
+  display: flex;
+  gap: 10px;
+  align-items: center;
+}
+
+.icons-svg {
+  width: 25px;
+  height: 25px;
+}
