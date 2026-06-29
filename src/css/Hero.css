@@ -97,6 +97,7 @@
 
 .hero__img {
   position: absolute;
+  z-index: 50;
   width: 220px;
   bottom: 2.5rem;
   right: -1.25rem;
@@ -124,7 +125,6 @@
   width: 100px;
   height: 100px;
   position: absolute;
-  background: red;
   mask-image: radial-gradient(circle, transparent 30px, #000 0);
   backdrop-filter: blur(4px);
   border-radius: 50%;
@@ -145,21 +145,20 @@
 .hero__text {
   z-index: 10;
   color: #fff;
-  font:
-    100 0.5rem "Poppins",
-    sans-serif;
+  font-family: poppins, sans-serif;
+  font-size: 12px;
+  font-weight: 100;
   position: absolute;
   width: 100px;
   height: 100px;
+  animation: rotate-text 8s linear infinite;
 }
 
 .hero__text span {
   position: absolute;
-
-  left: 50%;
-  top: 50%;
-
-  transform-origin: 0 100px;
+  left: 50px;
+  top: 5px;
+  transform-origin: 0 45px;
 }
 
 .hero__images .blob-big {
@@ -167,4 +166,14 @@
   left: 0;
   right: 0;
   justify-self: center;
+}
+
+/* Circular text animation */
+@keyframes rotate-text {
+  0% {
+    transform: rotate(0);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
 }

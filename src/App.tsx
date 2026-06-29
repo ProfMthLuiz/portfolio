@@ -20,7 +20,7 @@ function App() {
   const timelineRef = useRef(null);
   const trackRef = useRef(null);
 
-  const text = "EXPLORE - MORE - LET'S";
+  const text = "EXPLORE - MORE - LET'S -";
   const letters = text.split("");
 
   useEffect(() => {
@@ -140,7 +140,7 @@ function App() {
           <div className="hero__data">
             <h3 className="hero__subtitle">Hi! I'm Matheus.</h3>
             <h1 className="hero__title">
-              Full-Stack <span>Developer</span>{" "}
+              Full-Stack <span id="home-typed"></span>{" "}
             </h1>
             <p className="hero__description">
               I create beautiful and functional web applications.
@@ -158,23 +158,25 @@ function App() {
             />
 
             <div className="hero__circle">
-              {letters.map((letter, index) => (
-                <span
-                  key={index}
-                  style={{
-                    transform: `rotate(${index * (360 / letters.length)}deg)`,
-                  }}
-                  className="hero__text"
-                >
-                  {letter}
-                </span>
-              ))}
+              <div className="hero__text">
+                {letters.map((letter, index) => (
+                  <span
+                    key={index}
+                    style={{
+                      transform: `rotate(${index * (360 / letters.length)}deg)`,
+                    }}
+                  >
+                    {letter}
+                  </span>
+                ))}
+              </div>
+
               <a href="#about" className="hero__arrow">
                 <TiArrowDownThick />
               </a>
             </div>
 
-            <div className="blog-big"></div>
+            <div className="blob-big"></div>
           </div>
         </div>
       </section>
