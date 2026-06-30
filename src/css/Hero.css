@@ -20,6 +20,7 @@
 
 .hero {
   position: relative;
+  overflow: hidden;
 }
 
 .hero .blob-small:nth-child(1) {
@@ -33,19 +34,19 @@
 }
 
 .hero__container {
-  padding-block: 2.5rem 3rem;
-  row-gap: 7rem;
+  padding-block: 7rem 10rem;
 }
 
 .hero__data {
   text-align: center;
   color: #fff;
+  margin-bottom: 5rem;
 }
 
 .hero__subtitle {
   font-size: 1.5rem;
   font-weight: 500;
-  margin-bottom: 1rem;
+  margin-bottom: 0.5rem;
 }
 
 .hero__title {
@@ -57,10 +58,14 @@
   color: #00ff40;
 }
 
+.hero__description {
+  font-style: italic;
+}
+
 .hero__images {
   position: relative;
   justify-self: center;
-  margin-right: 1.5rem;
+  margin-bottom: 1.5rem;
 }
 
 .hero__box-1,

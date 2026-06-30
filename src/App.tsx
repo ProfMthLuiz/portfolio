@@ -2,6 +2,7 @@ import "./App.css";
 import "./css/Header.css";
 import "./css/Skills.css";
 import "./css/Hero.css";
+import "./css/Breakpoints.css";
 
 import { skills } from "./skills";
 import { useEffect, useRef, useState } from "react";
@@ -10,18 +11,41 @@ import { IoMdClose } from "react-icons/io";
 import { MdMenuOpen } from "react-icons/md";
 import { TiArrowDownThick } from "react-icons/ti";
 
+import { TypeAnimation } from "react-type-animation";
+
 import avatar from "./assets/avatar.png";
 
 import gsap from "gsap";
 
 function App() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
   const navMenuRef = useRef<HTMLDivElement>(null);
   const timelineRef = useRef(null);
   const trackRef = useRef(null);
 
   const text = "EXPLORE - MORE - LET'S -";
   const letters = text.split("");
+
+  useEffect(() => {
+    const scrollHeader = () => {
+      // No React, usamos window.scrollY diretamente em vez de "this.scrollY"
+      if (window.scrollY >= 50) {
+        setScrolled(true);
+      } else {
+        setScrolled(false);
+      }
+    };
+
+    // Adiciona o listener quando o componente renderiza
+    window.addEventListener("scroll", scrollHeader);
+
+    // CRÍTICO: Limpa o listener quando o componente é desmontado
+    // Isso evita vazamento de memória (memory leak)
+    return () => {
+      window.removeEventListener("scroll", scrollHeader);
+    };
+  }, []);
 
   useEffect(() => {
     const track = trackRef.current;
@@ -69,7 +93,7 @@ function App() {
 
   return (
     <div className="App">
-      <header className="header" id="header">
+      <header className={`header ${scrolled ? "scroll-header" : ""}`}>
         <nav className="nav container">
           <a href="/" className="nav__logo">
             Matheus Luiz.
@@ -138,9 +162,22 @@ function App() {
 
         <div className="hero__container container grid">
           <div className="hero__data">
-            <h3 className="hero__subtitle">Hi! I'm Matheus.</h3>
+            <h3 className="hero__subtitle">Hi! I'm Matheus</h3>
             <h1 className="hero__title">
-              Full-Stack <span id="home-typed"></span>{" "}
+              Fullstack Developer & <br />
+              <TypeAnimation
+                sequence={[
+                  "UI/UX Enthusiast.",
+                  2000,
+                  "Web Developer.",
+                  2000,
+                  "Problem Solver.",
+                  2000,
+                ]}
+                wrapper="span"
+                cursor={true}
+                repeat={Infinity}
+              />
             </h1>
             <p className="hero__description">
               I create beautiful and functional web applications.
@@ -182,7 +219,6 @@ function App() {
       </section>
 
       <section className="about section" id="about"></section>
-
       <section className="technologies section" id="technologies"></section>
       <section className="projects section" id="projects"></section>
       <section className="experience section" id="experience"></section>
