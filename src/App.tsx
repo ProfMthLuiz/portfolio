@@ -218,7 +218,20 @@ function App() {
         </div>
       </section>
 
-      <section className="about section" id="about"></section>
+      <section className="about section" id="about">
+        <div className="about__shadow"></div>
+        <div className="about__container container grid">
+          <div className="about__data">
+            <h2 className="section__title">
+              <span>Creativity</span>
+              <br />
+              Is My Passion
+            </h2>
+          </div>
+
+          <div className="about__image"></div>
+        </div>
+      </section>
       <section className="technologies section" id="technologies"></section>
       <section className="projects section" id="projects"></section>
       <section className="experience section" id="experience"></section>

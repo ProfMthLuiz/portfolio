@@ -14,7 +14,7 @@
 /* For large devices <> */
 @media (width >= 1150px) {
   .header {
-    box-shadow: 0 2px 5px rgba(255, 255, 255, 0.5);
+    box-shadow: 0 2px 5px rgba(0, 255, 106, 0.5);
   }
 
   .container {
@@ -105,5 +105,13 @@
 
   .hero .blob-small:nth-child(2) {
     top: 25rem;
+  }
+}
+
+@media (width >= 1520px) {
+  .hero__container {
+    grid-template-columns: 60% 1fr;
+    gap: 2rem;
+    padding: 7rem 5rem 10rem;
   }
 }
