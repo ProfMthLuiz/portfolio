@@ -35,6 +35,8 @@
 
 .hero__container {
   padding-block: 7rem 10rem;
+  display: grid;
+  padding: 7rem 2rem 10rem;
 }
 
 .hero__data {

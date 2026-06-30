@@ -61,8 +61,8 @@
   }
 
   .hero__container {
-    display: flex;
-    gap: 7rem;
+    grid-template-columns: 70% 1fr;
+    gap: 2rem;
   }
 
   .hero__subtitle {
