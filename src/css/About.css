@@ -1,0 +1,72 @@
+.about {
+  position: relative;
+  padding: 10px 4rem;
+}
+
+.about__container {
+  display: grid;
+  row-gap: 3rem;
+  overflow-y: clip;
+}
+.about__data {
+  max-width: 560px;
+}
+
+.about__data .section__title {
+  text-align: initial;
+  font-size: 3rem;
+  color: #fff;
+}
+
+.about__data .about__subtitle {
+  font-size: 1.5rem;
+  color: #4ade80;
+  font-style: italic;
+}
+
+.about__description {
+  font-size: 1.5rem;
+  font-weight: 100;
+  margin-top: 1rem;
+  margin-bottom: 2rem;
+  color: #fff;
+}
+
+.about__description b {
+  color: #4ade80;
+  font-style: italic;
+  font-weight: bold;
+}
+
+.about__image {
+  position: relative;
+  justify-self: center;
+}
+
+.about__image .blob-small:nth-child(1) {
+  top: 1.5rem;
+  left: 1rem;
+  z-index: 1;
+}
+
+.about__image .blob-small:nth-child(2) {
+  right: -0.5rem;
+  bottom: 0.5rem;
+  z-index: 1;
+}
+
+.about__perfil {
+  width: 220px;
+  position: relative;
+  z-index: 2;
+}
+
+.about__shadow {
+  width: 100%;
+  height: 258px;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  z-index: 3;
+  background: linear-gradient(180deg, hsla(100, 100%, 2%, 0) 60%, #000 95%);
+}

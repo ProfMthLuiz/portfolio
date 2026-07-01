@@ -2,6 +2,7 @@ import "./App.css";
 import "./css/Header.css";
 import "./css/Skills.css";
 import "./css/Hero.css";
+import "./css/About.css";
 import "./css/Breakpoints.css";
 
 import { skills } from "./skills";
@@ -156,7 +157,7 @@ function App() {
         </nav>
       </header>
 
-      <section className="hero section" id="hero">
+      <section className="hero " id="hero">
         <div className="blob-small"></div>
         <div className="blob-small"></div>
 
@@ -218,25 +219,44 @@ function App() {
         </div>
       </section>
 
-      <section className="about section" id="about">
-        <div className="about__shadow"></div>
+      <section className="about " id="about">
         <div className="about__container container grid">
           <div className="about__data">
-            <h2 className="section__title">
-              <span>Creativity</span>
-              <br />
-              Is My Passion
-            </h2>
+            <h2 className="section__title">ABOUT ME</h2>
+            <span className="about__subtitle">
+              Creating modern experiences through code and creativity.
+            </span>
+
+            <p className="about__description">
+              Sou um <b>Desenvolvedor Full Stack</b> apaixonado por transformar
+              ideias em soluções digitais modernas, escaláveis e intuitivas.
+              Minha principal stack é <b>React,</b> <b>TypeScript,</b>{" "}
+              <b>Laravel</b> e <b>MySQL,</b> buscando sempre escrever código
+              limpo, organizado e de fácil manutenção. Além de desenvolver
+              aplicações, também atuo como professor, compartilhando
+              conhecimento e incentivando novos desenvolvedores a evoluírem na
+              área da tecnologia. Acredito que ensinar também é uma forma de
+              aprender, e isso fortalece minha <b>comunicação,</b>{" "}
+              <b>colaboração</b> e <b>capacidade de resolver problemas.</b>
+            </p>
           </div>
 
-          <div className="about__image"></div>
+          <div className="about__image">
+            <div className="blob-small"></div>
+            <div className="about__shadow"></div>
+            <img
+              src={avatar}
+              alt="Digital professional portrait"
+              className="about__perfil"
+            />
+          </div>
         </div>
       </section>
-      <section className="technologies section" id="technologies"></section>
-      <section className="projects section" id="projects"></section>
-      <section className="experience section" id="experience"></section>
-      <section className="certificates section" id="certificates"></section>
-      <section className="contact section" id="contact"></section>
+      <section className="technologies " id="technologies"></section>
+      <section className="projects " id="projects"></section>
+      <section className="experience " id="experience"></section>
+      <section className="certificates " id="certificates"></section>
+      <section className="contact " id="contact"></section>
 
       <div className="slider">
         <div

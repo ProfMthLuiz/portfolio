@@ -21,6 +21,8 @@
 .hero {
   position: relative;
   overflow: hidden;
+  padding-inline: 4rem;
+  height: 100vh;
 }
 
 .hero .blob-small:nth-child(1) {
