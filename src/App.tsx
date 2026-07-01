@@ -17,16 +17,70 @@ import { TypeAnimation } from "react-type-animation";
 import avatar from "./assets/avatar.png";
 
 import gsap from "gsap";
+import { FluidCursor } from "./FluidCursor";
+
+type SectionId =
+  | "hero"
+  | "about"
+  | "technologies"
+  | "projects"
+  | "experience"
+  | "certificates"
+  | "contact";
+
+interface SectionData {
+  id: SectionId;
+  label: string;
+}
+
+const sectionsList: SectionData[] = [
+  { id: "hero", label: "Home" }, // Mudou de 'home' para 'hero'
+  { id: "about", label: "About" },
+  { id: "technologies", label: "Technologies" }, // Adicionado
+  { id: "projects", label: "Projects" }, // Adicionado
+  { id: "experience", label: "Experience" }, // Adicionado
+  { id: "certificates", label: "Certificates" }, // Adicionado
+  { id: "contact", label: "Contact" },
+];
 
 function App() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+  const [activeSection, setActiveSection] = useState<SectionId>("hero");
   const navMenuRef = useRef<HTMLDivElement>(null);
   const timelineRef = useRef(null);
   const trackRef = useRef(null);
 
   const text = "EXPLORE - MORE - LET'S -";
   const letters = text.split("");
+
+  useEffect(() => {
+    const handleScroll = () => {
+      const scrollY = window.scrollY;
+
+      sectionsList.forEach(({ id }) => {
+        const section = document.getElementById(id);
+
+        if (section) {
+          const top = section.offsetTop - 50; // Distância do topo (offset de 50px)
+          const height = section.offsetHeight; // Altura da seção
+
+          // Verifica se o scroll atual está dentro dos limites da seção
+          if (scrollY > top && scrollY <= top + height) {
+            setActiveSection(id);
+          }
+        }
+      });
+    };
+
+    // Adiciona o ouvinte de evento ao montar o componente
+    window.addEventListener("scroll", handleScroll);
+
+    // CRUCIAL: Remove o ouvinte ao desmontar para evitar vazamento de memória
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, []);
 
   useEffect(() => {
     const scrollHeader = () => {
@@ -93,194 +147,189 @@ function App() {
   };
 
   return (
-    <div className="App">
-      <header className={`header ${scrolled ? "scroll-header" : ""}`}>
-        <nav className="nav container">
-          <a href="/" className="nav__logo">
-            Matheus Luiz.
-          </a>
+    <>
+      <div
+        style={{
+          position: "fixed",
+          top: 0,
+          left: 0,
+          zIndex: 999999,
+          pointerEvents: "none",
+        }}
+      >
+        {/* <canvas id="canvas" style={{ width: "100%", height: "100%" }} /> */}
+        <FluidCursor />
+      </div>
+      <div className="App">
+        <header className={`header ${scrolled ? "scroll-header" : ""}`}>
+          <nav className="nav container">
+            <a href="/" className="nav__logo">
+              Matheus Luiz.
+            </a>
 
-          <div className="nav__menu" id="nav-menu" ref={navMenuRef}>
-            <ul className="nav__list">
-              <li>
-                <a href="#about" className="nav__link">
-                  About
-                </a>
-              </li>
-              <li>
-                <a href="#technologies" className="nav__link">
-                  Tecnologies
-                </a>
-              </li>
-              <li>
-                <a href="#projects" className="nav__link">
-                  Projects
-                </a>
-              </li>
-              <li>
-                <a href="#experience" className="nav__link">
-                  Experience
-                </a>
-              </li>
-              <li>
-                <a href="#certificates" className="nav__link">
-                  Certificates
-                </a>
-              </li>
-              <li>
-                <a href="#contact" className="nav__link">
-                  Contact
-                </a>
-              </li>
-            </ul>
-
-            {/* Close */}
-            <button
-              className="nav__close"
-              id="nav-close"
-              aria-label="Close menu"
-              onClick={toggleMenu}
-            >
-              <IoMdClose />
-            </button>
-          </div>
-
-          {/* Toggle */}
-          <button
-            className="nav__toggle"
-            id="nav-toggle"
-            aria-label="Togglew menu"
-            onClick={toggleMenu}
-          >
-            <MdMenuOpen />
-          </button>
-        </nav>
-      </header>
-
-      <section className="hero " id="hero">
-        <div className="blob-small"></div>
-        <div className="blob-small"></div>
-
-        <div className="hero__container container grid">
-          <div className="hero__data">
-            <h3 className="hero__subtitle">Hi! I'm Matheus</h3>
-            <h1 className="hero__title">
-              Fullstack Developer & <br />
-              <TypeAnimation
-                sequence={[
-                  "UI/UX Enthusiast.",
-                  2000,
-                  "Web Developer.",
-                  2000,
-                  "Problem Solver.",
-                  2000,
-                ]}
-                wrapper="span"
-                cursor={true}
-                repeat={Infinity}
-              />
-            </h1>
-            <p className="hero__description">
-              I create beautiful and functional web applications.
-            </p>
-          </div>
-          <div className="hero__images">
-            <div className="hero__box-1"></div>
-            <div className="hero__box-2"></div>
-            <div className="hero__box-3"></div>
-
-            <img
-              src={avatar}
-              alt="Digital professional portrait"
-              className="hero__img"
-            />
-
-            <div className="hero__circle">
-              <div className="hero__text">
-                {letters.map((letter, index) => (
-                  <span
-                    key={index}
-                    style={{
-                      transform: `rotate(${index * (360 / letters.length)}deg)`,
-                    }}
-                  >
-                    {letter}
-                  </span>
+            <div className="nav__menu" id="nav-menu" ref={navMenuRef}>
+              <ul className="nav__list">
+                {sectionsList.map(({ id, label }) => (
+                  <li className="nav__item" key={id}>
+                    <a
+                      href={`#${id}`}
+                      className={`nav__link ${activeSection === id ? "active-link" : ""}`}
+                    >
+                      {label}
+                    </a>
+                  </li>
                 ))}
-              </div>
+              </ul>
 
-              <a href="#about" className="hero__arrow">
-                <TiArrowDownThick />
-              </a>
+              {/* Close */}
+              <button
+                className="nav__close"
+                id="nav-close"
+                aria-label="Close menu"
+                onClick={toggleMenu}
+              >
+                <IoMdClose />
+              </button>
             </div>
 
-            <div className="blob-big"></div>
-          </div>
-        </div>
-      </section>
+            {/* Toggle */}
+            <button
+              className="nav__toggle"
+              id="nav-toggle"
+              aria-label="Togglew menu"
+              onClick={toggleMenu}
+            >
+              <MdMenuOpen />
+            </button>
+          </nav>
+        </header>
 
-      <section className="about " id="about">
-        <div className="about__container container grid">
-          <div className="about__data">
-            <h2 className="section__title">ABOUT ME</h2>
-            <span className="about__subtitle">
-              Creating modern experiences through code and creativity.
-            </span>
+        <section className="hero " id="hero">
+          <div className="blob-small"></div>
+          <div className="blob-small"></div>
 
-            <p className="about__description">
-              Sou um <b>Desenvolvedor Full Stack</b> apaixonado por transformar
-              ideias em soluções digitais modernas, escaláveis e intuitivas.
-              Minha principal stack é <b>React,</b> <b>TypeScript,</b>{" "}
-              <b>Laravel</b> e <b>MySQL,</b> buscando sempre escrever código
-              limpo, organizado e de fácil manutenção. Além de desenvolver
-              aplicações, também atuo como professor, compartilhando
-              conhecimento e incentivando novos desenvolvedores a evoluírem na
-              área da tecnologia. Acredito que ensinar também é uma forma de
-              aprender, e isso fortalece minha <b>comunicação,</b>{" "}
-              <b>colaboração</b> e <b>capacidade de resolver problemas.</b>
-            </p>
-          </div>
+          <div className="hero__container container grid">
+            <div className="hero__data">
+              <h3 className="hero__subtitle">Hi! I'm Matheus</h3>
+              <h1 className="hero__title">
+                Fullstack Developer & <br />
+                <TypeAnimation
+                  sequence={[
+                    "UI/UX Enthusiast.",
+                    2000,
+                    "Web Developer.",
+                    2000,
+                    "Problem Solver.",
+                    2000,
+                  ]}
+                  wrapper="span"
+                  cursor={true}
+                  repeat={Infinity}
+                />
+              </h1>
+              <p className="hero__description">
+                I create beautiful and functional web applications.
+              </p>
+            </div>
+            <div className="hero__images">
+              <div className="hero__box-1"></div>
+              <div className="hero__box-2"></div>
+              <div className="hero__box-3"></div>
 
-          <div className="about__image">
-            <div className="blob-small"></div>
-            <div className="about__shadow"></div>
-            <img
-              src={avatar}
-              alt="Digital professional portrait"
-              className="about__perfil"
-            />
-          </div>
-        </div>
-      </section>
-      <section className="technologies " id="technologies"></section>
-      <section className="projects " id="projects"></section>
-      <section className="experience " id="experience"></section>
-      <section className="certificates " id="certificates"></section>
-      <section className="contact " id="contact"></section>
+              <img
+                src={avatar}
+                alt="Digital professional portrait"
+                className="hero__img"
+              />
 
-      <div className="slider">
-        <div
-          className="track"
-          ref={trackRef} /* Atrelando a referência aqui */
-          onMouseEnter={handleMouseEnter}
-          onMouseLeave={handleMouseLeave}
-        >
-          {/* TRIPLICAMOS a array aqui para garantir que sempre haja conteúdo preenchendo a tela */}
-          {[...skills, ...skills, ...skills].map(
-            ({ name, icon: Icon, color }, index) => (
-              <div
-                className="skills"
-                key={`${name}-${index}`}
-                style={{ "--color": color } as React.CSSProperties}
-              >
-                <Icon className="icon" />
-                <p>{name}</p>
+              <div className="hero__circle">
+                <div className="hero__text">
+                  {letters.map((letter, index) => (
+                    <span
+                      key={index}
+                      style={{
+                        transform: `rotate(${index * (360 / letters.length)}deg)`,
+                      }}
+                    >
+                      {letter}
+                    </span>
+                  ))}
+                </div>
+
+                <a href="#about" className="hero__arrow">
+                  <TiArrowDownThick />
+                </a>
               </div>
-            ),
-          )}
+
+              <div className="blob-big"></div>
+            </div>
+          </div>
+        </section>
+
+        <section className="about " id="about">
+          <div className="about__container container grid">
+            <div className="about__data">
+              <h2 className="section__title">ABOUT ME</h2>
+              <span className="about__subtitle">
+                Creating modern experiences through code and creativity.
+              </span>
+
+              <p className="about__description">
+                Sou um <b>Desenvolvedor Full Stack</b> apaixonado por
+                transformar ideias em soluções digitais modernas, escaláveis e
+                intuitivas. Minha principal stack é <b>React,</b>{" "}
+                <b>TypeScript,</b> <b>Laravel</b> e <b>MySQL,</b> buscando
+                sempre escrever código limpo, organizado e de fácil manutenção.
+                Além de desenvolver aplicações, também atuo como professor,
+                compartilhando conhecimento e incentivando novos desenvolvedores
+                a evoluírem na área da tecnologia. Acredito que ensinar também é
+                uma forma de aprender, e isso fortalece minha{" "}
+                <b>comunicação,</b> <b>colaboração</b> e{" "}
+                <b>capacidade de resolver problemas.</b>
+              </p>
+            </div>
+
+            <div className="about__image">
+              <div className="blob-small"></div>
+              <div className="about__shadow"></div>
+              <img
+                src={avatar}
+                alt="Digital professional portrait"
+                className="about__perfil"
+              />
+            </div>
+          </div>
+        </section>
+        <section className="technologies " id="technologies"></section>
+        <section className="projects " id="projects"></section>
+        <section className="experience " id="experience"></section>
+        <section className="certificates " id="certificates"></section>
+        <section className="contact " id="contact"></section>
+
+        <div className="slider">
+          <div
+            className="track"
+            ref={trackRef} /* Atrelando a referência aqui */
+            onMouseEnter={handleMouseEnter}
+            onMouseLeave={handleMouseLeave}
+          >
+            {/* TRIPLICAMOS a array aqui para garantir que sempre haja conteúdo preenchendo a tela */}
+            {[...skills, ...skills, ...skills].map(
+              ({ name, icon: Icon, color }, index) => (
+                <div
+                  className="skills"
+                  key={`${name}-${index}`}
+                  style={{ "--color": color } as React.CSSProperties}
+                >
+                  <Icon className="icon" />
+                  <p>{name}</p>
+                </div>
+              ),
+            )}
+          </div>
         </div>
       </div>
-    </div>
+    </>
   );
 }
 

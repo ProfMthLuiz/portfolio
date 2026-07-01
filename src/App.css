@@ -1,0 +1,11 @@
+/* Active Link */
+.nav__link.active-link {
+  color: #00ff40; /* Cor do link ativo */
+  font-weight: bold; /* Deixa o link ativo em negrito */
+}
+
+/* Apenas para teste, ou para garantir que cada seção ocupe a tela */
+section {
+  min-height: 100vh; /* Faz cada seção ocupar pelo menos 100% da altura da tela */
+  padding: 60px 0; /* Dá um espaçamento interno */
+}
