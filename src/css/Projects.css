@@ -1,0 +1,144 @@
+.card {
+  position: relative;
+  padding-block: 5rem;
+}
+
+.card__blur {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.card__container {
+  position: relative;
+  display: grid;
+  grid-template-columns: 260px;
+  justify-content: center;
+  gap: 2rem;
+}
+
+.card__article {
+  position: relative;
+  border-radius: 2rem;
+  overflow: hidden;
+}
+
+.card__img {
+  border-radius: 2rem;
+  transition: transform 0.3s ease-in-out;
+}
+
+.card__shadow {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    180deg,
+    hsla(0, 0%, 0%, 0) 70%,
+    hsl(0, 0%, 0%) 100%
+  );
+}
+
+.card__data {
+  color: #fff;
+  position: absolute;
+  left: 1.5rem;
+  bottom: 2rem;
+}
+
+.card__name {
+  font-size: 2rem;
+  margin-bottom: 0.25rem;
+}
+
+.card__profession {
+  display: block;
+  font-size: 1rem;
+}
+
+.card__clip {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  background-color: hsl(52, 90%, 50%);
+  box-shadow: 0 0 16px 4px hsl(52, 90%, 50%);
+  width: 2rem;
+  height: 2rem;
+  border-radius: 50%;
+  place-items: center;
+  font-size: 1.5rem;
+  color: #000;
+  z-index: 5;
+  cursor: pointer;
+  transition: transform 0.3s ease-in-out;
+}
+
+.card__article:hover .card__img {
+  transform: scale(1.1);
+}
+
+.info {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: hsla(0, 0%, 0%, 0.1);
+  backdrop-filter: blur(12px);
+  padding: 3rem 1.5rem 1.5rem;
+  color: #fff;
+}
+
+.info__name {
+  font-size: 2rem;
+  margin-bottom: 0.5rem;
+}
+
+.info__description {
+  font-size: 1rem;
+  margin-bottom: 1rem;
+}
+
+.info__button {
+  display: inline-flex;
+  background-color: hsl(52, 90%, 50%);
+  box-shadow: 0 0 12px hsl(52, 90%, 50%);
+  padding: 0.5rem 0.75rem;
+  border-radius: 0.5rem;
+  color: #000;
+  font-size: 1rem;
+  font-weight: 600;
+  transition: box-shadow 0.3s ease-in-out;
+}
+
+.info__button:hover {
+  box-shadow: 0 0 24px hsl(52, 90%, 50%);
+}
+
+.info__social {
+  position: absolute;
+  left: 1.5rem;
+  bottom: 1.5rem;
+  display: flex;
+  column-gap: 0.5rem;
+}
+
+.info__link {
+  background-color: hsl(52, 90%, 50%);
+  box-shadow: 0 0 12px hsl(52, 90%, 50%);
+  width: 2rem;
+  height: 2rem;
+  border-radius: 0.75rem;
+  display: grid;
+  place-items: center;
+  font-size: 1.5rem;
+  color: #000;
+  transition: transform 0.3s ease-in-out;
+}
+
+.container-projects {
+}

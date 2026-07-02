@@ -7,12 +7,24 @@ import "./css/Stack.css";
 import "./css/Projects.css";
 import "./css/Breakpoints.css";
 
+import {
+  FaReact,
+  FaLaravel,
+  FaNodeJs,
+  FaPhp,
+  FaGithub,
+  FaCss,
+  FaHtml5,
+  FaGitAlt,
+} from "react-icons/fa6";
+
 import { skills } from "./skills";
 import { useEffect, useRef, useState } from "react";
 
 import { IoMdClose } from "react-icons/io";
 import { MdMenuOpen } from "react-icons/md";
 import { TiArrowDownThick } from "react-icons/ti";
+import { CiMenuFries } from "react-icons/ci";
 
 import { TypeAnimation } from "react-type-animation";
 
@@ -278,6 +290,113 @@ function App() {
 
       <section className="projects section" id="projects">
         <h2 className="section__title">Projects</h2>
+
+        <div className="card">
+          <div className="card__container container-projects">
+            <article className="card__article">
+              <img src="" alt="" className="card__img" />
+              <div className="card__shadow"></div>
+
+              <div className="card__data">
+                <h2 className="card__name">Project Title</h2>
+                <span className="card__profession">
+                  Project description goes here.
+                </span>
+              </div>
+
+              <div className="card__clip">
+                <CiMenuFries />
+              </div>
+
+              <div className="info">
+                <div className="info__data">
+                  <h2 className="info__name">KAKAKA</h2>
+                  <p className="info__description">KKKKKKKKKKKKKKKKKK</p>
+                  <a href="#" className="info__button"></a>
+                </div>
+                <div className="info__social">
+                  <a href="#" target="_blank" className="info__link">
+                    <FaReact />
+                  </a>
+                  <a href="#" target="_blank" className="info__link">
+                    <FaLaravel />
+                  </a>
+                  <a href="#" target="_blank" className="info__link">
+                    <FaNodeJs />
+                  </a>
+                </div>
+              </div>
+            </article>
+
+            <article className="card__article">
+              <img src="" alt="" className="card__img" />
+              <div className="card__shadow"></div>
+
+              <div className="card__data">
+                <h2 className="card__name">Project Title</h2>
+                <span className="card__profession">
+                  Project description goes here.
+                </span>
+              </div>
+
+              <div className="card__clip">
+                <CiMenuFries />
+              </div>
+              <div className="info">
+                <div className="info__data">
+                  <h2 className="info__name">KAKAKA</h2>
+                  <p className="info__description">KKKKKKKKKKKKKKKKKK</p>
+                  <a href="#" className="info__button"></a>
+                </div>
+                <div className="info__social">
+                  <a href="#" target="_blank" className="info__link">
+                    <FaReact />
+                  </a>
+                  <a href="#" target="_blank" className="info__link">
+                    <FaLaravel />
+                  </a>
+                  <a href="#" target="_blank" className="info__link">
+                    <FaNodeJs />
+                  </a>
+                </div>
+              </div>
+            </article>
+
+            <article className="card__article">
+              <img src="" alt="" className="card__img" />
+              <div className="card__shadow"></div>
+
+              <div className="card__data">
+                <h2 className="card__name">Project Title</h2>
+                <span className="card__profession">
+                  Project description goes here.
+                </span>
+              </div>
+
+              <div className="card__clip">
+                <CiMenuFries />
+              </div>
+              <div className="info">
+                <div className="info__data">
+                  <h2 className="info__name">KAKAKA</h2>
+                  <p className="info__description">KKKKKKKKKKKKKKKKKK</p>
+                  <a href="#" className="info__button"></a>
+                </div>
+                <div className="info__social">
+                  <a href="#" target="_blank" className="info__link">
+                    <FaReact />
+                  </a>
+                  <a href="#" target="_blank" className="info__link">
+                    <FaLaravel />
+                  </a>
+                  <a href="#" target="_blank" className="info__link">
+                    <FaNodeJs />
+                  </a>
+                </div>
+              </div>
+            </article>
+          </div>
+        </div>
       </section>
       <section className="contact " id="contact"></section>
     </div>
