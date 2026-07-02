@@ -1,7 +1,6 @@
 .about {
   position: relative;
   padding: 50px 4rem;
-  height: 100vh;
   min-height: 100vh;
 }
 
@@ -9,7 +8,7 @@
   display: grid;
   row-gap: 3rem;
   overflow-y: clip;
-  height: 100%;
+  padding: 100px 0 0 0;
 }
 
 .about__images .blob-small {

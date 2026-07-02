@@ -3,6 +3,8 @@ import "./css/Header.css";
 import "./css/Skills.css";
 import "./css/Hero.css";
 import "./css/About.css";
+import "./css/Stack.css";
+import "./css/Projects.css";
 import "./css/Breakpoints.css";
 
 import { skills } from "./skills";
@@ -19,14 +21,7 @@ import avatar from "./assets/avatar.png";
 import gsap from "gsap";
 import { FluidCursor } from "./FluidCursor";
 
-type SectionId =
-  | "hero"
-  | "about"
-  | "technologies"
-  | "projects"
-  | "experience"
-  | "certificates"
-  | "contact";
+type SectionId = "hero" | "about" | "stack" | "projects" | "contact";
 
 interface SectionData {
   id: SectionId;
@@ -34,12 +29,10 @@ interface SectionData {
 }
 
 const sectionsList: SectionData[] = [
-  { id: "hero", label: "Home" }, // Mudou de 'home' para 'hero'
+  { id: "hero", label: "Home" },
   { id: "about", label: "About" },
-  { id: "technologies", label: "Technologies" }, // Adicionado
-  { id: "projects", label: "Projects" }, // Adicionado
-  { id: "experience", label: "Experience" }, // Adicionado
-  { id: "certificates", label: "Certificates" }, // Adicionado
+  { id: "stack", label: "Stack" },
+  { id: "projects", label: "Projects" },
   { id: "contact", label: "Contact" },
 ];
 
@@ -257,34 +250,36 @@ function App() {
         </div>
       </section>
 
-      <section className="technologies " id="technologies"></section>
-      <section className="projects " id="projects"></section>
-      <section className="experience " id="experience"></section>
-      <section className="certificates " id="certificates"></section>
-      <section className="contact " id="contact"></section>
-
-      <div className="slider">
-        <div
-          className="track"
-          ref={trackRef} /* Atrelando a referência aqui */
-          onMouseEnter={handleMouseEnter}
-          onMouseLeave={handleMouseLeave}
-        >
-          {/* TRIPLICAMOS a array aqui para garantir que sempre haja conteúdo preenchendo a tela */}
-          {[...skills, ...skills, ...skills].map(
-            ({ name, icon: Icon, color }, index) => (
-              <div
-                className="skills"
-                key={`${name}-${index}`}
-                style={{ "--color": color } as React.CSSProperties}
-              >
-                <Icon className="icon" />
-                <p>{name}</p>
-              </div>
-            ),
-          )}
+      <section className="stack " id="stack">
+        <h2 className="section__title">My Tech Stack</h2>
+        <div className="slider">
+          <div
+            className="track"
+            ref={trackRef} /* Atrelando a referência aqui */
+            onMouseEnter={handleMouseEnter}
+            onMouseLeave={handleMouseLeave}
+          >
+            {/* TRIPLICAMOS a array aqui para garantir que sempre haja conteúdo preenchendo a tela */}
+            {[...skills, ...skills, ...skills].map(
+              ({ name, icon: Icon, color }, index) => (
+                <div
+                  className="skills"
+                  key={`${name}-${index}`}
+                  style={{ "--color": color } as React.CSSProperties}
+                >
+                  <Icon className="icon" />
+                  <p>{name}</p>
+                </div>
+              ),
+            )}
+          </div>
         </div>
-      </div>
+      </section>
+
+      <section className="projects section" id="projects">
+        <h2 className="section__title">Projects</h2>
+      </section>
+      <section className="contact " id="contact"></section>
     </div>
   );
 }

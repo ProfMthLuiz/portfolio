@@ -80,6 +80,13 @@
     font-size: 1.2rem;
   }
 
+  .about__container {
+    display: grid;
+    row-gap: 3rem;
+    overflow-y: clip;
+    height: 100vh;
+  }
+
   .about__box-1,
   .about__box-2,
   .about__box-3 {

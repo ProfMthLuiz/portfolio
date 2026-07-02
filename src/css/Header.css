@@ -65,7 +65,7 @@
   content: "";
   position: absolute;
   width: 0;
-  height: 1px;
+  height: 2px;
   background-color: #00ff40;
   border-radius: 50%;
   left: 0;
@@ -77,10 +77,15 @@
     width 0.3s ease;
 }
 
+.nav__link.active-link {
+  color: #00ff40;
+  font-weight: bold;
+}
+
 .nav__link:hover,
 .nav__link:hover::after {
   opacity: 1;
-  width: 100%;
+  width: 50%;
   color: #00ff40;
 }
 
@@ -115,7 +120,18 @@
   left: 0;
   width: 100%;
   height: 2px; /* Espessura da linha RGB */
-  background: linear-gradient(90deg, #00ff40, #00f0ff, #7000ff, #00ff40);
+  background: linear-gradient(
+    90deg,
+    #ff0000,
+    #ff7300,
+    #fffb00,
+    #48ff00,
+    #00ffd5,
+    #002bff,
+    #7a00ff,
+    #ff00c8,
+    #ff0000
+  );
   background-size: 200% auto;
   animation: rgb-line 4s linear infinite; /* Faz as cores correrem suavemente */
 }
