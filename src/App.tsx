@@ -45,7 +45,6 @@ const sectionsList: SectionData[] = [
 
 function App() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const [scrolled, setScrolled] = useState(false);
   const [activeSection, setActiveSection] = useState<SectionId>("hero");
   const navMenuRef = useRef<HTMLDivElement>(null);
   const timelineRef = useRef(null);
@@ -79,26 +78,6 @@ function App() {
     // CRUCIAL: Remove o ouvinte ao desmontar para evitar vazamento de memória
     return () => {
       window.removeEventListener("scroll", handleScroll);
-    };
-  }, []);
-
-  useEffect(() => {
-    const scrollHeader = () => {
-      // No React, usamos window.scrollY diretamente em vez de "this.scrollY"
-      if (window.scrollY >= 50) {
-        setScrolled(true);
-      } else {
-        setScrolled(false);
-      }
-    };
-
-    // Adiciona o listener quando o componente renderiza
-    window.addEventListener("scroll", scrollHeader);
-
-    // CRÍTICO: Limpa o listener quando o componente é desmontado
-    // Isso evita vazamento de memória (memory leak)
-    return () => {
-      window.removeEventListener("scroll", scrollHeader);
     };
   }, []);
 
@@ -149,7 +128,7 @@ function App() {
   return (
     <div className="App">
       <FluidCursor />
-      <header className={`header ${scrolled ? "scroll-header" : ""}`}>
+      <header className="header">
         <nav className="nav container">
           <a href="/" className="nav__logo">
             Matheus Luiz.
@@ -218,43 +197,44 @@ function App() {
               I create beautiful and functional web applications.
             </p>
           </div>
-          <div className="hero__images">
-            <div className="hero__box-1"></div>
-            <div className="hero__box-2"></div>
-            <div className="hero__box-3"></div>
 
-            <img
-              src={avatar}
-              alt="Digital professional portrait"
-              className="hero__img"
-            />
-
-            <div className="hero__circle">
-              <div className="hero__text">
-                {letters.map((letter, index) => (
-                  <span
-                    key={index}
-                    style={{
-                      transform: `rotate(${index * (360 / letters.length)}deg)`,
-                    }}
-                  >
-                    {letter}
-                  </span>
-                ))}
-              </div>
-
-              <a href="#about" className="hero__arrow">
-                <TiArrowDownThick />
-              </a>
+          <div className="about__circle">
+            <div className="about__text">
+              {letters.map((letter, index) => (
+                <span
+                  key={index}
+                  style={{
+                    transform: `rotate(${index * (360 / letters.length)}deg)`,
+                  }}
+                >
+                  {letter}
+                </span>
+              ))}
             </div>
 
-            <div className="blob-small"></div>
+            <a href="#technologies" className="about__arrow">
+              <TiArrowDownThick />
+            </a>
           </div>
         </div>
       </section>
 
       <section className="about " id="about">
         <div className="about__container container grid">
+          <div className="about__images">
+            <div className="about__box-1"></div>
+            <div className="about__box-2"></div>
+            <div className="about__box-3"></div>
+
+            <img
+              src={avatar}
+              alt="Digital professional portrait"
+              className="about__img"
+            />
+
+            <div className="blob-small"></div>
+          </div>
+
           <div className="about__data">
             <h2 className="section__title">ABOUT ME</h2>
             <span className="about__subtitle">
@@ -274,18 +254,9 @@ function App() {
               <b>colaboração</b> e <b>capacidade de resolver problemas.</b>
             </p>
           </div>
-
-          <div className="about__image">
-            <div className="blob-small"></div>
-            <div className="about__shadow"></div>
-            <img
-              src={avatar}
-              alt="Digital professional portrait"
-              className="about__perfil"
-            />
-          </div>
         </div>
       </section>
+
       <section className="technologies " id="technologies"></section>
       <section className="projects " id="projects"></section>
       <section className="experience " id="experience"></section>

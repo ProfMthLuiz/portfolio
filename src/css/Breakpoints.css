@@ -5,43 +5,36 @@
     width: 50%;
   }
 
-  .hero__container {
-    grid-template-columns: 400px;
-    justify-content: center;
-  }
-
   .about__container {
     grid-template-columns: 560px;
     justify-content: center;
   }
+
+  .about__images {
+    padding-top: 100px;
+  }
 }
 
 @media screen and (width>= 768px) {
+  .hero__subtitle {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+  }
+
+  .hero__title {
+    font-size: 4rem;
+  }
+
+  .hero__description {
+    font-size: 1.2rem;
+  }
 }
 
 /* For large devices <> */
 @media (width >= 1150px) {
-  .header::after {
-    content: "";
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    width: 100%;
-    height: 2px; /* Espessura da linha RGB */
-    background: linear-gradient(90deg, #00ff40, #00f0ff, #7000ff, #00ff40);
-    background-size: 200% auto;
-    animation: rgb-line 4s linear infinite; /* Faz as cores correrem suavemente */
-  }
-
-  .container {
-    margin-inline: auto;
-  }
-
   .hero {
     padding-block: 10rem 2rem;
-  }
-
-  .section__title {
+    padding-inline: 7rem;
   }
 
   .blob-small {
@@ -75,13 +68,6 @@
     gap: 3rem;
   }
 
-  .hero__container {
-    grid-template-columns: 70% 1fr;
-    gap: 2rem;
-    height: 100%;
-    align-items: center;
-  }
-
   .hero__subtitle {
     font-size: 2.5rem;
     margin-bottom: 1rem;
@@ -95,23 +81,23 @@
     font-size: 1.2rem;
   }
 
-  .hero__box-1,
-  .hero__box-2,
-  .hero__box-3 {
+  .about__box-1,
+  .about__box-2,
+  .about__box-3 {
     width: 250px;
     height: 300px;
   }
 
-  .hero__img {
+  .about__img {
     width: 250px;
   }
 
-  .hero__circle {
+  .about__circle {
     right: -3rem;
     bottom: -1.5rem;
   }
 
-  .hero__images .blog.big {
+  .about__images .blog.big {
     top: -8rem;
   }
 
@@ -140,41 +126,7 @@
   .about__description {
     margin-bottom: 3rem;
   }
-
-  .about__perfil {
-    width: 500px;
-  }
-
-  .about__image {
-    order: -1;
-  }
-
-  .about__image .blob-small {
-    width: 200px;
-    height: 200px;
-    filter: blur(75px);
-  }
-
-  .about__image .blob-small:nth-child(1) {
-    top: 10rem;
-    left: 0rem;
-  }
-
-  .about__image .blob-small:nth-child(2) {
-    right: 5rem;
-    bottom: 7rem;
-  }
-
-  .about__shadow {
-    height: 600px;
-  }
 }
 
 @media (width >= 1520px) {
-  .hero__container {
-    grid-template-columns: 60% 1fr;
-    gap: 2rem;
-    height: 100%;
-    align-items: center;
-  }
 }

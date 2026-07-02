@@ -1,13 +1,137 @@
 .about {
   position: relative;
-  padding: 10px 4rem;
+  padding: 50px 4rem;
+  height: 100vh;
 }
 
 .about__container {
   display: grid;
   row-gap: 3rem;
   overflow-y: clip;
+  height: 100%;
+  padding: 125px 0;
 }
+
+.about__images .blob-small {
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.about__images {
+  position: relative;
+  justify-self: center;
+  margin-bottom: 1.5rem;
+}
+
+.about__box-1,
+.about__box-2,
+.about__box-3 {
+  width: 210px;
+  height: 250px;
+  border-radius: 1.5rem;
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(18px);
+}
+
+.about__box-2 {
+  position: absolute;
+  left: 0.75rem;
+  bottom: 0.75em;
+  rotate: 5deg;
+}
+
+.about__box-3 {
+  position: absolute;
+  left: 1.5rem;
+  bottom: 1.5rem;
+  rotate: 10deg;
+}
+
+.about__img {
+  position: absolute;
+  z-index: 50;
+  width: 220px;
+  bottom: 2.5rem;
+  right: -1.25rem;
+  mask-image: linear-gradient(
+    to bottom,
+    hsla(100, 75%, 60%, 1) 70%,
+    transparent 100%
+  );
+}
+
+.about__circle {
+  position: absolute;
+  right: -2rem;
+  bottom: -3.5rem;
+  width: 100px;
+  height: 100px;
+  border: 20px solid hsla(100, 24%, 4%, 0.5);
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+}
+
+.about__circle::after {
+  content: "";
+  width: 100px;
+  height: 100px;
+  position: absolute;
+  mask-image: radial-gradient(circle, transparent 30px, #000 0);
+  backdrop-filter: blur(4px);
+  border-radius: 50%;
+}
+
+.about__arrow {
+  display: grid;
+  place-items: center;
+  width: 40px;
+  height: 40px;
+  background-color: #48ff00;
+  box-shadow: 0 0 10px rgba(72, 255, 0, 0.5);
+  font-size: 1.5rem;
+  border-radius: 50%;
+  z-index: 10;
+  color: #fff;
+}
+
+.about__text {
+  z-index: 10;
+  color: #fff;
+  font-family: poppins, sans-serif;
+  font-size: 12px;
+  font-weight: 100;
+  position: absolute;
+  width: 100px;
+  height: 100px;
+  animation: rotate-text 8s linear infinite;
+}
+
+.about__text span {
+  position: absolute;
+  left: 50px;
+  top: 5px;
+  transform-origin: 0 45px;
+}
+
+.about__images .blob-big {
+  top: -1.5rem;
+  left: 0;
+  right: 0;
+  justify-self: center;
+}
+
+/* Circular text animation */
+@keyframes rotate-text {
+  0% {
+    transform: rotate(0);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
 .about__data {
   max-width: 560px;
 }
@@ -36,37 +160,4 @@
   color: #48ff00;
   font-style: italic;
   font-weight: bold;
-}
-
-.about__image {
-  position: relative;
-  justify-self: center;
-}
-
-.about__image .blob-small:nth-child(1) {
-  top: 1.5rem;
-  left: 1rem;
-  z-index: 1;
-}
-
-.about__image .blob-small:nth-child(2) {
-  right: -0.5rem;
-  bottom: 0.5rem;
-  z-index: 1;
-}
-
-.about__perfil {
-  width: 220px;
-  position: relative;
-  z-index: 2;
-}
-
-.about__shadow {
-  width: 100%;
-  height: 258px;
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  z-index: 3;
-  background: linear-gradient(180deg, hsla(100, 100%, 2%, 0) 60%, #000 95%);
 }
