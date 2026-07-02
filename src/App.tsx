@@ -198,8 +198,8 @@ function App() {
             </p>
           </div>
 
-          <div className="about__circle">
-            <div className="about__text">
+          <div className="hero__circle">
+            <div className="hero__text">
               {letters.map((letter, index) => (
                 <span
                   key={index}
@@ -212,7 +212,7 @@ function App() {
               ))}
             </div>
 
-            <a href="#technologies" className="about__arrow">
+            <a href="#technologies" className="hero__arrow">
               <TiArrowDownThick />
             </a>
           </div>
