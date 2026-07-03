@@ -5,28 +5,19 @@ import "./css/Hero.css";
 import "./css/About.css";
 import "./css/Stack.css";
 import "./css/Projects.css";
+import "./css/Footer.css";
 import "./css/Breakpoints.css";
 
-import {
-  FaReact,
-  FaLaravel,
-  FaNodeJs,
-  FaPhp,
-  FaGithub,
-  FaCss,
-  FaHtml5,
-  FaGitAlt,
-} from "react-icons/fa6";
-
-import imgProject from "./assets/img-projects.jpg";
+import { FaReact, FaLaravel, FaNodeJs } from "react-icons/fa6";
 
 import { skills } from "./skills";
 import { useEffect, useRef, useState } from "react";
 
 import { IoMdClose } from "react-icons/io";
+import { FaCode } from "react-icons/fa";
+import { FaGithub, FaLinkedin } from "react-icons/fa6";
 import { MdMenuOpen } from "react-icons/md";
 import { TiArrowDownThick } from "react-icons/ti";
-import { CiMenuFries } from "react-icons/ci";
 
 import { TypeAnimation } from "react-type-animation";
 
@@ -34,6 +25,7 @@ import avatar from "./assets/avatar.png";
 
 import gsap from "gsap";
 import { FluidCursor } from "./FluidCursor";
+import GlassCard from "./GlassCard";
 
 type SectionId = "hero" | "about" | "stack" | "projects" | "contact";
 
@@ -293,123 +285,135 @@ function App() {
       <section className="projects section" id="projects">
         <h2 className="section__title">Projects</h2>
 
-        <div className="cards__projects">
-          <div className="card__container container-projects">
-            <article className="card__article">
-              <img src={imgProject} alt="Image Project" className="card__img" />
-              <div className="card__shadow"></div>
+        <div className="card__projects">
+          <div className="card__container container__projects">
+            <GlassCard
+              title="Frontend"
+              description="React • TypeScript • Next.js"
+              icon={<FaReact />}
+              color="mint"
+            />
 
-              <div className="card__data">
-                <h2 className="card__name">Project Title</h2>
-                <span className="card__profession">
-                  Project description goes here.
-                </span>
-              </div>
+            <GlassCard
+              title="Backend"
+              description="Laravel • PHP • MySQL"
+              icon={<FaLaravel />}
+              color="violet"
+            />
 
-              <div className="card__clip">
-                <CiMenuFries />
-              </div>
+            <GlassCard
+              title="Mobile"
+              description="React Native"
+              icon={<FaNodeJs />}
+              color="ocean"
+            />
 
-              <div className="info">
-                <div className="info__data">
-                  <h2 className="info__name">KAKAKA</h2>
-                  <p className="info__description">KKKKKKKKKKKKKKKKKK</p>
-                  <a href="#" className="info__button">
-                    KAKA
-                  </a>
-                </div>
-                <div className="info__social">
-                  <a href="#" target="_blank" className="info__link">
-                    <FaReact />
-                  </a>
-                  <a href="#" target="_blank" className="info__link">
-                    <FaLaravel />
-                  </a>
-                  <a href="#" target="_blank" className="info__link">
-                    <FaNodeJs />
-                  </a>
-                </div>
-              </div>
-            </article>
+            <GlassCard
+              title="Frontend"
+              description="React • TypeScript • Next.js"
+              icon={<FaReact />}
+              color="mint"
+            />
 
-            <article className="card__article">
-              <img src={imgProject} alt="Image Project" className="card__img" />
+            <GlassCard
+              title="Backend"
+              description="Laravel • PHP • MySQL"
+              icon={<FaLaravel />}
+              color="violet"
+            />
 
-              <div className="card__shadow"></div>
+            <GlassCard
+              title="Mobile"
+              description="React Native"
+              icon={<FaNodeJs />}
+              color="ocean"
+            />
 
-              <div className="card__data">
-                <h2 className="card__name">Project Title</h2>
-                <span className="card__profession">
-                  Project description goes here.
-                </span>
-              </div>
+            <GlassCard
+              title="Frontend"
+              description="React • TypeScript • Next.js"
+              icon={<FaReact />}
+              color="mint"
+            />
 
-              <div className="card__clip">
-                <CiMenuFries />
-              </div>
-              <div className="info">
-                <div className="info__data">
-                  <h2 className="info__name">KAKAKA</h2>
-                  <p className="info__description">KKKKKKKKKKKKKKKKKK</p>
-                  <a href="#" className="info__button">
-                    KAKA
-                  </a>
-                </div>
-                <div className="info__social">
-                  <a href="#" target="_blank" className="info__link">
-                    <FaReact />
-                  </a>
-                  <a href="#" target="_blank" className="info__link">
-                    <FaLaravel />
-                  </a>
-                  <a href="#" target="_blank" className="info__link">
-                    <FaNodeJs />
-                  </a>
-                </div>
-              </div>
-            </article>
+            <GlassCard
+              title="Backend"
+              description="Laravel • PHP • MySQL"
+              icon={<FaLaravel />}
+              color="violet"
+            />
 
-            <article className="card__article">
-              <img src={imgProject} alt="Image Project" className="card__img" />
-
-              <div className="card__shadow"></div>
-
-              <div className="card__data">
-                <h2 className="card__name">Project Title</h2>
-                <span className="card__profession">
-                  Project description goes here.
-                </span>
-              </div>
-
-              <div className="card__clip">
-                <CiMenuFries />
-              </div>
-
-              <div className="info">
-                <div className="info__data">
-                  <h2 className="info__name">KAKAKA</h2>
-                  <p className="info__description">KKKKKKKKKKKKKKKKKK</p>
-                  <a href="#" className="info__button">
-                    KAKA
-                  </a>
-                </div>
-                <div className="info__social">
-                  <a href="#" target="_blank" className="info__link">
-                    <FaReact />
-                  </a>
-                  <a href="#" target="_blank" className="info__link">
-                    <FaLaravel />
-                  </a>
-                  <a href="#" target="_blank" className="info__link">
-                    <FaNodeJs />
-                  </a>
-                </div>
-              </div>
-            </article>
+            <GlassCard
+              title="Mobile"
+              description="React Native"
+              icon={<FaNodeJs />}
+              color="ocean"
+            />
           </div>
         </div>
       </section>
       <section className="contact " id="contact"></section>
+
+      <footer className="main-footer">
+        <div className="footer-container">
+          <a
+            href="https://www.linkedin.com/in/mohammad-abu-sakour-kn"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="footer-author-link"
+          >
+            <FaCode />
+            <span>Matheus Luiz</span>
+          </a>
+          <div className="footer-social">
+            <a
+              href="https://www.linkedin.com/in/mohammad-abu-sakour-kn"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="footer-social-link"
+            >
+              <FaLinkedin />
+            </a>
+            <a href="#" className="footer-social-link" title="GitHub">
+              <FaGithub />
+            </a>
+          </div>
+          <div className="footer-text-wrapper">
+            <p className="footer-text">
+              <span className="footer-copyright">
+                © 2026 <b>Matheus Luiz.</b> All rights reserved.
+              </span>
+            </p>
+          </div>
+        </div>
+      </footer>
+
+      {/* <footer className="main-footer">
+        <div className="footer-content">
+          <div className="footer-brand">
+            <p>
+              Estou sempre aberto a novas oportunidades e projetos desafiadores.
+            </p>
+            <span className="copyright">
+              &copy; 2026 Matheus Luiz. Built from scratch.
+            </span>
+          </div>
+
+          <div className="footer-links">
+            <a
+              href="https://www.linkedin.com/in/mohammad-abu-sakour-kn"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="footer-social-link"
+            >
+              <FaLinkedin />
+            </a>
+            <a href="#" className="footer-social-link" title="GitHub">
+              <FaGithub />
+            </a>
+          </div>
+        </div>
+      </footer> */}
     </div>
   );
 }
