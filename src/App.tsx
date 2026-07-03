@@ -18,6 +18,8 @@ import {
   FaGitAlt,
 } from "react-icons/fa6";
 
+import imgProject from "./assets/img-projects.jpg";
+
 import { skills } from "./skills";
 import { useEffect, useRef, useState } from "react";
 
@@ -291,10 +293,10 @@ function App() {
       <section className="projects section" id="projects">
         <h2 className="section__title">Projects</h2>
 
-        <div className="card">
+        <div className="cards__projects">
           <div className="card__container container-projects">
             <article className="card__article">
-              <img src="" alt="" className="card__img" />
+              <img src={imgProject} alt="Image Project" className="card__img" />
               <div className="card__shadow"></div>
 
               <div className="card__data">
@@ -312,7 +314,9 @@ function App() {
                 <div className="info__data">
                   <h2 className="info__name">KAKAKA</h2>
                   <p className="info__description">KKKKKKKKKKKKKKKKKK</p>
-                  <a href="#" className="info__button"></a>
+                  <a href="#" className="info__button">
+                    KAKA
+                  </a>
                 </div>
                 <div className="info__social">
                   <a href="#" target="_blank" className="info__link">
@@ -329,7 +333,8 @@ function App() {
             </article>
 
             <article className="card__article">
-              <img src="" alt="" className="card__img" />
+              <img src={imgProject} alt="Image Project" className="card__img" />
+
               <div className="card__shadow"></div>
 
               <div className="card__data">
@@ -346,7 +351,9 @@ function App() {
                 <div className="info__data">
                   <h2 className="info__name">KAKAKA</h2>
                   <p className="info__description">KKKKKKKKKKKKKKKKKK</p>
-                  <a href="#" className="info__button"></a>
+                  <a href="#" className="info__button">
+                    KAKA
+                  </a>
                 </div>
                 <div className="info__social">
                   <a href="#" target="_blank" className="info__link">
@@ -363,7 +370,8 @@ function App() {
             </article>
 
             <article className="card__article">
-              <img src="" alt="" className="card__img" />
+              <img src={imgProject} alt="Image Project" className="card__img" />
+
               <div className="card__shadow"></div>
 
               <div className="card__data">
@@ -376,11 +384,14 @@ function App() {
               <div className="card__clip">
                 <CiMenuFries />
               </div>
+
               <div className="info">
                 <div className="info__data">
                   <h2 className="info__name">KAKAKA</h2>
                   <p className="info__description">KKKKKKKKKKKKKKKKKK</p>
-                  <a href="#" className="info__button"></a>
+                  <a href="#" className="info__button">
+                    KAKA
+                  </a>
                 </div>
                 <div className="info__social">
                   <a href="#" target="_blank" className="info__link">
