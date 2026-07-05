@@ -35,6 +35,7 @@
 
 .main-footer {
   background: #000;
+  border-top: 1px solid #48ff00;
   padding: 3rem 0;
   margin-top: 4rem;
 }
@@ -96,18 +97,23 @@
   display: inline-flex;
   align-items: center;
   gap: 0.4rem;
-  color: #48ff00;
   text-decoration: none;
   font-weight: 700;
-  transition: all var(--transition-fast);
   padding: 0.2rem 0.5rem;
   border-radius: 6px;
 }
 
-.footer-author-link:hover {
-  color: var(--cyan);
-  background: rgba(192, 132, 252, 0.1);
-  transform: translateY(-2px);
+.footer-author-link svg {
+  color: #48ff00;
+}
+
+.footer-author-link span {
+  transition: all 0.4s ease;
+  color: #fff;
+}
+
+.footer-author-link:hover span {
+  color: #48ff00;
 }
 
 .footer-author-link i {
@@ -137,9 +143,9 @@
   transition: all var(--transition-fast);
 }
 
-.footer-social-link:hover {
-  background: var(--primary);
-  border-color: var(--primary);
-  color: white;
-  transform: translateY(-2px);
+.footer-social-link:hover,
+.footer-social-link:hover svg {
+  background-color: #fff;
+  transition: all var(--transition);
+  transform: scale(1.1);
 }

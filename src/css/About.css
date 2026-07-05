@@ -88,7 +88,7 @@
 }
 
 .about__data .about__subtitle {
-  font-size: 1.5rem;
+  font-size: 1.2rem;
   color: #48ff00;
   font-style: italic;
 }
@@ -105,4 +105,10 @@
   color: #48ff00;
   font-style: italic;
   font-weight: bold;
+}
+
+.about .social-link {
+  position: absolute;
+  top: 0;
+  left: 0;
 }

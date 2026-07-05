@@ -232,6 +232,23 @@ function App() {
             />
 
             <div className="blob-small"></div>
+
+            <a
+              href="https://www.linkedin.com/in/matheus-luiz99/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="social-link"
+            >
+              <FaLinkedin />
+            </a>
+            <a
+              href="https://github.com/ProfMthLuiz"
+              className="social-link"
+              title="GitHub"
+              target="_blank"
+            >
+              <FaGithub />
+            </a>
           </div>
 
           <div className="about__data">
@@ -357,7 +374,7 @@ function App() {
       <footer className="main-footer">
         <div className="footer-container">
           <a
-            href="https://www.linkedin.com/in/mohammad-abu-sakour-kn"
+            href="https://www.linkedin.com/in/matheus-luiz99/"
             target="_blank"
             rel="noopener noreferrer"
             className="footer-author-link"
@@ -367,14 +384,19 @@ function App() {
           </a>
           <div className="footer-social">
             <a
-              href="https://www.linkedin.com/in/mohammad-abu-sakour-kn"
+              href="https://www.linkedin.com/in/matheus-luiz99/"
               target="_blank"
               rel="noopener noreferrer"
               className="footer-social-link"
             >
               <FaLinkedin />
             </a>
-            <a href="#" className="footer-social-link" title="GitHub">
+            <a
+              href="https://github.com/ProfMthLuiz"
+              className="footer-social-link"
+              title="GitHub"
+              target="_blank"
+            >
               <FaGithub />
             </a>
           </div>
@@ -387,33 +409,6 @@ function App() {
           </div>
         </div>
       </footer>
-
-      {/* <footer className="main-footer">
-        <div className="footer-content">
-          <div className="footer-brand">
-            <p>
-              Estou sempre aberto a novas oportunidades e projetos desafiadores.
-            </p>
-            <span className="copyright">
-              &copy; 2026 Matheus Luiz. Built from scratch.
-            </span>
-          </div>
-
-          <div className="footer-links">
-            <a
-              href="https://www.linkedin.com/in/mohammad-abu-sakour-kn"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="footer-social-link"
-            >
-              <FaLinkedin />
-            </a>
-            <a href="#" className="footer-social-link" title="GitHub">
-              <FaGithub />
-            </a>
-          </div>
-        </div>
-      </footer> */}
     </div>
   );
 }
