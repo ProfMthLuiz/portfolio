@@ -16,6 +16,10 @@
   .card__container {
     grid-template-columns: 1fr;
   }
+
+  .footer-container {
+    flex-direction: column;
+  }
 }
 
 @media screen and (width>= 768px) {
@@ -152,6 +156,11 @@
 
   .card__container {
     grid-template-columns: repeat(4, 1fr);
+  }
+
+  .footer-container {
+    flex-direction: row;
+    gap: 5px;
   }
 }
 
