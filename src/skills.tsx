@@ -70,6 +70,6 @@ export const skills = [
   {
     name: "GitHub",
     icon: FaGithub,
-    color: "#181717",
+    color: "#4e4d4dff",
   },
 ];

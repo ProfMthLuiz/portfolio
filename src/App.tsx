@@ -173,8 +173,6 @@ function App() {
       </header>
 
       <section className="hero " id="hero">
-        <div className="blob-small"></div>
-
         <div className="hero__container container grid">
           <div className="hero__data">
             <h3 className="hero__subtitle">Hi! I'm Matheus</h3>
@@ -386,45 +384,46 @@ function App() {
           <form className="contact__form">
             <div className="contact__row">
               <div className="contact__field">
-                <label htmlFor="name" className="contact__label">
-                  Name
-                </label>
-
                 <input
                   type="text"
                   id="name"
                   className="contact__input"
-                  placeholder="John Doe"
+                  required
                 />
+                <label htmlFor="name" className="contact__label">
+                  Name
+                </label>
               </div>
 
               <div className="contact__field">
-                <label htmlFor="email" className="contact__label">
-                  Email
-                </label>
-
                 <input
                   type="email"
                   id="email"
                   className="contact__input"
-                  placeholder="john@example.com"
+                  required
                 />
+                <label htmlFor="email" className="contact__label">
+                  Email
+                </label>
+              </div>
+
+              <div className="contact__field">
+                <textarea
+                  id="message"
+                  className="contact__textarea"
+                  required
+                ></textarea>
+                <label htmlFor="message" className="contact__label">
+                  Message
+                </label>
               </div>
             </div>
 
-            <div className="contact__field">
-              <label htmlFor="message" className="contact__label">
-                Message
-              </label>
-
-              <textarea
-                id="message"
-                className="contact__textarea"
-                placeholder="Tell me about your project..."
-              ></textarea>
-            </div>
-
             <button type="submit" className="contact__button">
+              <span></span>
+              <span></span>
+              <span></span>
+              <span></span>
               Send Message
             </button>
           </form>

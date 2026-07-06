@@ -1,6 +1,6 @@
 .contact {
   width: 100%;
-  height: 100vh;
+  height: 70vh;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -9,12 +9,8 @@
 .contact__container {
   width: 80%;
   height: 90%;
-  background-color: #3a3939;
   border-radius: 20px;
-  border: 1px solid #aaaaaa;
-
-  padding: 1rem 5rem;
-
+  box-shadow: 0px 0px 20px #29570b;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -23,6 +19,7 @@
 
 .contact__header {
   text-align: center;
+  margin-bottom: 30px;
 }
 
 .contact__title {
@@ -36,6 +33,12 @@
   font-style: italic;
 }
 
+.contact__row {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
 .contact__form {
   width: 100%;
 }
@@ -46,17 +49,154 @@
 }
 
 .contact__label {
+  top: 12px;
+  left: 0;
   position: absolute;
+  font-size: 1rem;
+  color: #f0ffff;
+  padding: 0 15px;
+  margin: 0 20px;
+  font-weight: 200;
+  background-color: #000;
+  transition: all 0.3s ease;
 }
 
-.contact__input {
+.contact__input,
+.contact__textarea {
   width: 100%;
   outline: none;
-  font-size: 2.2rem;
-  padding: 30px;
-  line-height: 80px;
+  font-size: 22px;
+  padding: 0px 30px;
+  line-height: 45px;
   border-radius: 10px;
-  border: 2px solid #f0ffff;
+  border: 1px solid #f0ffff;
   background: transparent;
-  transition: all 0.2s ease;
+}
+
+.contact__input:focus,
+.contact__input:valid,
+.contact__textarea:focus,
+.contact__textarea:valid {
+  color: #66ff00;
+  border: 1px solid #66ff00;
+}
+
+.contact__input:focus + .contact__label,
+.contact__input:valid + .contact__label,
+.contact__textarea:focus + .contact__label,
+.contact__textarea:valid + .contact__label {
+  color: #66ff00;
+  height: 30px;
+  line-height: 30px;
+  transform: translate(0px, -25px);
+}
+
+.contact__button {
+  margin-top: 30px;
+  cursor: pointer;
+  border: none;
+  overflow: hidden;
+  position: relative;
+  width: 100%;
+  background-color: #29570b;
+  color: #fff;
+  padding: 30px 60px;
+  font-size: 30px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5);
+  transition: all 0.3s ease;
+}
+
+.contact__button:hover {
+  background-color: #3c9600;
+}
+
+.contact__button::before {
+  content: "";
+  z-index: 5;
+  position: absolute;
+  top: 2px;
+  left: 2px;
+  bottom: 2px;
+  width: 50%;
+  background: rgba(255, 255, 255, 0.05);
+}
+
+.contact__button span:nth-child(1) {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background: linear-gradient(to right, #48ff00, #d2ffc1);
+  animation: animate1 2s linear infinite;
+}
+
+@keyframes animate1 {
+  0% {
+    transform: translateX(-100%);
+  }
+  100% {
+    transform: translateX(100%);
+  }
+}
+
+.contact__button span:nth-child(2) {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 2px;
+  height: 100%;
+  background: linear-gradient(to bottom, #48ff00, #d2ffc1);
+  animation: animate2 2s linear infinite;
+  animation-delay: 1s;
+}
+
+@keyframes animate2 {
+  0% {
+    transform: translateY(-100%);
+  }
+  100% {
+    transform: translateY(100%);
+  }
+}
+
+.contact__button span:nth-child(3) {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background: linear-gradient(to right, #48ff00, #d2ffc1);
+  animation: animate3 2s linear infinite;
+}
+
+@keyframes animate3 {
+  0% {
+    transform: translateX(100%);
+  }
+  100% {
+    transform: translateX(-100%);
+  }
+}
+
+.contact__button span:nth-child(4) {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 2px;
+  height: 100%;
+  background: linear-gradient(to top, #48ff00, #d2ffc1);
+  animation: animate4 2s linear infinite;
+  animation-delay: 1s;
+}
+
+@keyframes animate4 {
+  0% {
+    transform: translateY(100%);
+  }
+  100% {
+    transform: translateY(-100%);
+  }
 }

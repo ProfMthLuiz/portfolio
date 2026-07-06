@@ -17,6 +17,14 @@
     grid-template-columns: 1fr;
   }
 
+  .contact__container {
+    padding: 1rem 2rem;
+  }
+
+  .contact__button {
+    font-size: 22px;
+  }
+
   .footer-container {
     flex-direction: column;
   }
@@ -156,6 +164,10 @@
 
   .card__container {
     grid-template-columns: repeat(4, 1fr);
+  }
+
+  .contact__container {
+    padding: 1rem 5rem;
   }
 
   .footer-container {

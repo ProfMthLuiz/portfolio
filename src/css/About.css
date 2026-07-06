@@ -29,8 +29,10 @@
   width: 210px;
   height: 250px;
   border-radius: 1.5rem;
-  background: rgba(255, 255, 255, 0.05);
-  backdrop-filter: blur(18px);
+}
+
+.about__box-1 {
+  background-color: hsla(100, 25%, 32%);
 }
 
 .about__box-2 {
@@ -38,6 +40,7 @@
   left: 0.75rem;
   bottom: 0.75em;
   rotate: 5deg;
+  background-color: #fff;
 }
 
 .about__box-3 {
@@ -45,6 +48,11 @@
   left: 1.5rem;
   bottom: 1.5rem;
   rotate: 10deg;
+  background: linear-gradient(
+    180deg,
+    hsl(100, 75%, 85%) 0%,
+    hsl(100, 75%, 60%) 100%
+  );
 }
 
 .about__img {
@@ -65,16 +73,6 @@
   left: 0;
   right: 0;
   justify-self: center;
-}
-
-/* Circular text animation */
-@keyframes rotate-text {
-  0% {
-    transform: rotate(0);
-  }
-  100% {
-    transform: rotate(360deg);
-  }
 }
 
 .about__data {

@@ -1,26 +1,5 @@
-@keyframes glowing {
-  from {
-    background-position: 0% 0%;
-  }
-
-  to {
-    background-position: 400% 0%;
-  }
-}
-
 .blob-small {
-  background: linear-gradient(
-    45deg,
-    #ff0000,
-    #ff7300,
-    #fffb00,
-    #48ff00,
-    #00ffd5,
-    #002bff,
-    #7a00ff,
-    #ff00c8,
-    #ff0000
-  );
+  background: hsl(100, 75%, 60%) 100%;
   position: absolute;
   background-size: 400%;
   z-index: 0;
@@ -126,8 +105,6 @@
   place-items: center;
   width: 40px;
   height: 40px;
-  background-color: #48ff00;
-  box-shadow: 0 0 10px rgba(72, 255, 0, 0.5);
   font-size: 1.5rem;
   border-radius: 50%;
   z-index: 10;
@@ -205,6 +182,16 @@
   width: 100px;
   height: 100px;
   animation: rotate-text 8s linear infinite;
+}
+
+/* Circular text animation */
+@keyframes rotate-text {
+  0% {
+    transform: rotate(0);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
 }
 
 .hero__text span {
