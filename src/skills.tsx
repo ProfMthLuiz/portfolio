@@ -73,3 +73,36 @@ export const skills = [
     color: "#4e4d4dff",
   },
 ];
+
+export const skillsContact = [
+  {
+    name: "React",
+    icon: FaReact,
+    color: "#61DAFB",
+  },
+  {
+    name: "TypeScript",
+    icon: BsTypescript,
+    color: "#3178C6",
+  },
+  {
+    name: "Laravel",
+    icon: FaLaravel,
+    color: "#FF2D20",
+  },
+  {
+    name: "PHP",
+    icon: FaPhp,
+    color: "#777BB4",
+  },
+  {
+    name: "MySQL",
+    icon: SiMysql,
+    color: "#4479A1",
+  },
+  {
+    name: "Git",
+    icon: FaGitAlt,
+    color: "#F05032",
+  },
+];

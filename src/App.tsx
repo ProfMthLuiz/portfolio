@@ -10,16 +10,21 @@ import "./css/Footer.css";
 import "./css/Breakpoints.css";
 
 import { FaReact, FaLaravel, FaNodeJs } from "react-icons/fa6";
-import { MdEmail } from "react-icons/md";
+import { MdQuestionAnswer } from "react-icons/md";
 
-import { skills } from "./skills";
+import { FaPhp, FaGitAlt } from "react-icons/fa6";
+import { BsTypescript } from "react-icons/bs";
+import { SiMysql } from "react-icons/si";
+
+import { skills, skillsContact } from "./skills";
 import { useEffect, useRef, useState } from "react";
 
 import { IoMdClose } from "react-icons/io";
 import { FaCode } from "react-icons/fa";
-import { FaGithub, FaLinkedin } from "react-icons/fa6";
-import { MdMenuOpen } from "react-icons/md";
+import { FaGithub, FaLinkedin, FaLocationDot } from "react-icons/fa6";
+import { MdMenuOpen, MdEmail } from "react-icons/md";
 import { TiArrowDownThick } from "react-icons/ti";
+import { HiBadgeCheck } from "react-icons/hi";
 
 import { TypeAnimation } from "react-type-animation";
 
@@ -371,15 +376,91 @@ function App() {
       </section>
 
       <section className="contact" id="contact">
-        <div className="contact__container">
-          <header className="contact__header">
-            <h2 className="contact__title">Let's Build Something</h2>
+        <div className="contact__content">
+          <div className="contact__info">
+            <div className="contact__status">
+              <HiBadgeCheck />
+              <span>Available for new projects</span>
+            </div>
 
-            <p className="contact__subtitle">
-              Available for freelance opportunities and full-time technical
-              leadership roles.
+            <h2 className="contact__title">
+              Let's Build
+              <br />
+              <span>Something</span>
+              <br />
+              Together.
+            </h2>
+
+            <p className="contact__description">
+              I'm currently available for freelance projects, full-time
+              opportunities and collaborations. Tell me about your idea and I'll
+              get back to you.
             </p>
-          </header>
+
+            <ul className="contact__details">
+              <li className="contact__detail">
+                <MdQuestionAnswer />
+                <span>
+                  I usually respond within <b>24 hours.</b>
+                </span>
+              </li>
+
+              <li className="contact__detail">
+                <FaLocationDot />
+                <span>
+                  Based in <b>Brazil</b>
+                </span>
+              </li>
+
+              <li className="contact__detail">
+                <MdEmail />
+                <span>
+                  <b>contact@email.com</b>
+                </span>
+              </li>
+            </ul>
+
+            <div className="contact__stack">
+              <span className="contact__stack-title">Tech Stack</span>
+
+              <div className="contact__badges">
+                {skillsContact.map(({ name, icon: Icon, color }, index) => (
+                  <span
+                    className="contact__badge"
+                    style={{ "--color": color } as React.CSSProperties}
+                    key={`${name}-${index}`}
+                  >
+                    <Icon className="icon" />
+                    {name}
+                  </span>
+                ))}
+                <span className="contact__badge">
+                  <FaReact />
+                  React
+                </span>
+                <span className="contact__badge">
+                  <BsTypescript />
+                  TypeScript
+                </span>
+                <span className="contact__badge">
+                  <FaLaravel />
+                  Laravel
+                </span>
+                <span className="contact__badge">
+                  <FaPhp />
+                  PHP
+                </span>
+                <span className="contact__badge">
+                  <SiMysql />
+                  MySQL
+                </span>
+                <span className="contact__badge">
+                  <FaGitAlt />
+                  Git
+                </span>
+              </div>
+            </div>
+          </div>
 
           <form className="contact__form">
             <div className="contact__row">
@@ -406,26 +487,42 @@ function App() {
                   Email
                 </label>
               </div>
+            </div>
 
-              <div className="contact__field">
-                <textarea
-                  id="message"
-                  className="contact__textarea"
-                  required
-                ></textarea>
-                <label htmlFor="message" className="contact__label">
-                  Message
-                </label>
-              </div>
+            <div className="contact__field">
+              <input
+                type="text"
+                id="subject"
+                className="contact__input"
+                required
+              />
+
+              <label htmlFor="subject" className="contact__label">
+                Subject
+              </label>
+            </div>
+
+            <div className="contact__field">
+              <textarea
+                id="message"
+                className="contact__textarea"
+                required
+              ></textarea>
+
+              <label htmlFor="message" className="contact__label">
+                Message
+              </label>
             </div>
 
             <button type="submit" className="contact__button">
-              <span></span>
-              <span></span>
-              <span></span>
-              <span></span>
-              Send Message
+              <span className="contact__button-icon">→</span>
+
+              <span className="contact__button-text">Send Message</span>
             </button>
+
+            <p className="contact__privacy">
+              Your information is safe. I'll never share your data.
+            </p>
           </form>
         </div>
       </section>
