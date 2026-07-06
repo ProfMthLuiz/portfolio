@@ -107,8 +107,34 @@
   font-weight: bold;
 }
 
-.about .social-link {
-  position: absolute;
+.social-link-linkedin {
   top: 0;
-  left: 0;
+  left: -75px;
+}
+
+.social-link-github {
+  top: 75px;
+  left: -75px;
+}
+
+.social-link-github,
+.social-link-linkedin {
+  position: absolute;
+  width: 55px;
+  height: 50px;
+  font-size: 1.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #48ff00;
+  color: #000;
+  text-decoration: none;
+  clip-path: polygon(25% 0%, 75% 0%, 100% 50%, 75% 100%, 25% 100%, 0% 50%);
+  transition: all 0.4s ease;
+}
+
+.social-link-github:hover,
+.social-link-linkedin:hover {
+  transform: scale(1.1);
+  background-color: #fff;
 }

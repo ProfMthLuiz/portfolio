@@ -5,10 +5,12 @@ import "./css/Hero.css";
 import "./css/About.css";
 import "./css/Stack.css";
 import "./css/Projects.css";
+import "./css/Contact.css";
 import "./css/Footer.css";
 import "./css/Breakpoints.css";
 
 import { FaReact, FaLaravel, FaNodeJs } from "react-icons/fa6";
+import { MdEmail } from "react-icons/md";
 
 import { skills } from "./skills";
 import { useEffect, useRef, useState } from "react";
@@ -237,13 +239,13 @@ function App() {
               href="https://www.linkedin.com/in/matheus-luiz99/"
               target="_blank"
               rel="noopener noreferrer"
-              className="social-link"
+              className="social-link-linkedin"
             >
               <FaLinkedin />
             </a>
             <a
               href="https://github.com/ProfMthLuiz"
-              className="social-link"
+              className="social-link-github"
               title="GitHub"
               target="_blank"
             >
@@ -369,7 +371,65 @@ function App() {
           </div>
         </div>
       </section>
-      <section className="contact " id="contact"></section>
+
+      <section className="contact" id="contact">
+        <div className="contact__container">
+          <header className="contact__header">
+            <h2 className="contact__title">Let's Build Something</h2>
+
+            <p className="contact__subtitle">
+              Available for freelance opportunities and full-time technical
+              leadership roles.
+            </p>
+          </header>
+
+          <form className="contact__form">
+            <div className="contact__row">
+              <div className="contact__field">
+                <label htmlFor="name" className="contact__label">
+                  Name
+                </label>
+
+                <input
+                  type="text"
+                  id="name"
+                  className="contact__input"
+                  placeholder="John Doe"
+                />
+              </div>
+
+              <div className="contact__field">
+                <label htmlFor="email" className="contact__label">
+                  Email
+                </label>
+
+                <input
+                  type="email"
+                  id="email"
+                  className="contact__input"
+                  placeholder="john@example.com"
+                />
+              </div>
+            </div>
+
+            <div className="contact__field">
+              <label htmlFor="message" className="contact__label">
+                Message
+              </label>
+
+              <textarea
+                id="message"
+                className="contact__textarea"
+                placeholder="Tell me about your project..."
+              ></textarea>
+            </div>
+
+            <button type="submit" className="contact__button">
+              Send Message
+            </button>
+          </form>
+        </div>
+      </section>
 
       <footer className="main-footer">
         <div className="footer-container">
@@ -382,6 +442,16 @@ function App() {
             <FaCode />
             <span>Matheus Luiz</span>
           </a>
+
+          <div className="footer-text-wrapper">
+            <p className="footer-text">
+              <span className="footer-copyright">
+                © 2026 <b>Matheus Luiz.</b> Building experiences, one line of
+                code at a time.
+              </span>
+            </p>
+          </div>
+
           <div className="footer-social">
             <a
               href="https://www.linkedin.com/in/matheus-luiz99/"
@@ -399,13 +469,14 @@ function App() {
             >
               <FaGithub />
             </a>
-          </div>
-          <div className="footer-text-wrapper">
-            <p className="footer-text">
-              <span className="footer-copyright">
-                © 2026 <b>Matheus Luiz.</b> All rights reserved.
-              </span>
-            </p>
+            <a
+              href="#"
+              className="footer-social-link"
+              title="GitHub"
+              target="_blank"
+            >
+              <MdEmail />
+            </a>
           </div>
         </div>
       </footer>
