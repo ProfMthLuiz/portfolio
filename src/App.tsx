@@ -9,15 +9,22 @@ import "./css/Contact.css";
 import "./css/Footer.css";
 import "./css/Breakpoints.css";
 
-import { FaReact, FaLaravel, FaNodeJs } from "react-icons/fa6";
+import {
+  FaReact,
+  FaLaravel,
+  FaNodeJs,
+  FaArrowRightLong,
+} from "react-icons/fa6";
 import { MdQuestionAnswer } from "react-icons/md";
+import { AiTwotoneLock } from "react-icons/ai";
 
-import { FaPhp, FaGitAlt } from "react-icons/fa6";
-import { BsTypescript } from "react-icons/bs";
-import { SiMysql } from "react-icons/si";
+import { FaUser, FaPencilAlt } from "react-icons/fa";
+import { GrSend } from "react-icons/gr";
 
 import { skills, skillsContact } from "./skills";
 import { useEffect, useRef, useState } from "react";
+
+import { LuMessageSquareText } from "react-icons/lu";
 
 import { IoMdClose } from "react-icons/io";
 import { FaCode } from "react-icons/fa";
@@ -25,6 +32,7 @@ import { FaGithub, FaLinkedin, FaLocationDot } from "react-icons/fa6";
 import { MdMenuOpen, MdEmail } from "react-icons/md";
 import { TiArrowDownThick } from "react-icons/ti";
 import { HiBadgeCheck } from "react-icons/hi";
+import { GiPadlock } from "react-icons/gi";
 
 import { TypeAnimation } from "react-type-animation";
 
@@ -33,6 +41,8 @@ import avatar from "./assets/avatar.png";
 import gsap from "gsap";
 import { FluidCursor } from "./FluidCursor";
 import GlassCard from "./GlassCard";
+
+import emailjs from "@emailjs/browser";
 
 type SectionId = "hero" | "about" | "stack" | "projects" | "contact";
 
@@ -50,6 +60,8 @@ const sectionsList: SectionData[] = [
 ];
 
 function App() {
+  const formRef = useRef<HTMLFormElement>(null);
+  const [loading, setLoading] = useState(false);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [activeSection, setActiveSection] = useState<SectionId>("hero");
   const navMenuRef = useRef<HTMLDivElement>(null);
@@ -129,6 +141,33 @@ function App() {
     });
 
     setIsMenuOpen((prev) => !prev);
+  };
+
+  const sendEmail = (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    setLoading(true);
+
+    // Substitua pelas suas credenciais reais do EmailJS (ou use variáveis de ambiente)
+    emailjs
+      .sendForm(
+        import.meta.env.VITE_EMAILJS_SERVICE_ID,
+        import.meta.env.VITE_EMAILJS_TEMPLATE_ID,
+        formRef.current!,
+        import.meta.env.VITE_EMAILJS_PUBLIC_KEY,
+      )
+      .then(
+        () => {
+          alert("Mensagem enviada com sucesso! 🎉");
+          formRef.current?.reset(); // Limpa o formulário automaticamente
+        },
+        (error) => {
+          console.error(error);
+          alert("Erro ao enviar a mensagem, tente novamente.");
+        },
+      )
+      .finally(() => {
+        setLoading(false);
+      });
   };
 
   return (
@@ -376,6 +415,7 @@ function App() {
       </section>
 
       <section className="contact" id="contact">
+        <div className="dot-matrix"></div>
         <div className="contact__content">
           <div className="contact__info">
             <div className="contact__status">
@@ -415,7 +455,7 @@ function App() {
               <li className="contact__detail">
                 <MdEmail />
                 <span>
-                  <b>contact@email.com</b>
+                  <b>mthluiz99@gmail.com</b>
                 </span>
               </li>
             </ul>
@@ -434,45 +474,30 @@ function App() {
                     {name}
                   </span>
                 ))}
-                <span className="contact__badge">
-                  <FaReact />
-                  React
-                </span>
-                <span className="contact__badge">
-                  <BsTypescript />
-                  TypeScript
-                </span>
-                <span className="contact__badge">
-                  <FaLaravel />
-                  Laravel
-                </span>
-                <span className="contact__badge">
-                  <FaPhp />
-                  PHP
-                </span>
-                <span className="contact__badge">
-                  <SiMysql />
-                  MySQL
-                </span>
-                <span className="contact__badge">
-                  <FaGitAlt />
-                  Git
-                </span>
+              </div>
+            </div>
+
+            <div className="contact__circles">
+              <div className="circle-outer">
+                <div className="circle-mid">
+                  <div className="circle-inner"></div>
+                </div>
               </div>
             </div>
           </div>
 
-          <form className="contact__form">
+          <form className="contact__form" ref={formRef} onSubmit={sendEmail}>
             <div className="contact__row">
               <div className="contact__field">
                 <input
                   type="text"
                   id="name"
+                  name="name"
                   className="contact__input"
                   required
                 />
                 <label htmlFor="name" className="contact__label">
-                  Name
+                  <FaUser /> Name
                 </label>
               </div>
 
@@ -480,10 +505,12 @@ function App() {
                 <input
                   type="email"
                   id="email"
+                  name="email"
                   className="contact__input"
                   required
                 />
                 <label htmlFor="email" className="contact__label">
+                  <MdEmail />
                   Email
                 </label>
               </div>
@@ -493,11 +520,13 @@ function App() {
               <input
                 type="text"
                 id="subject"
+                name="subject"
                 className="contact__input"
                 required
               />
 
               <label htmlFor="subject" className="contact__label">
+                <FaPencilAlt />
                 Subject
               </label>
             </div>
@@ -505,25 +534,35 @@ function App() {
             <div className="contact__field">
               <textarea
                 id="message"
+                name="message"
                 className="contact__textarea"
                 required
               ></textarea>
 
               <label htmlFor="message" className="contact__label">
+                <LuMessageSquareText />
                 Message
               </label>
             </div>
 
             <button type="submit" className="contact__button">
-              <span className="contact__button-icon">→</span>
-
+              <GrSend />
               <span className="contact__button-text">Send Message</span>
+              <FaArrowRightLong />
             </button>
 
             <p className="contact__privacy">
+              <GiPadlock />
               Your information is safe. I'll never share your data.
             </p>
           </form>
+        </div>
+        <div className="contact__circles">
+          <div className="circle-outer">
+            <div className="circle-mid">
+              <div className="circle-inner"></div>
+            </div>
+          </div>
         </div>
       </section>
 

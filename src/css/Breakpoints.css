@@ -17,6 +17,18 @@
     grid-template-columns: 1fr;
   }
 
+  .contact__content {
+    grid-template-columns: 1fr;
+  }
+
+  .contact__button {
+    padding: 20px 20px;
+  }
+
+  .contact__button-text {
+    font-size: 0.8rem;
+  }
+
   .footer-container {
     flex-direction: column;
   }
@@ -42,6 +54,10 @@
 
   .card__container {
     grid-template-columns: repeat(3, 1fr);
+  }
+
+  .contact__badges {
+    width: 100%;
   }
 }
 
@@ -158,6 +174,10 @@
     grid-template-columns: repeat(4, 1fr);
   }
 
+  .contact__content {
+    grid-template-columns: 40% 60%;
+  }
+
   .footer-container {
     flex-direction: row;
     gap: 5px;
@@ -167,5 +187,9 @@
 @media (width >= 1520px) {
   .card__container {
     grid-template-columns: repeat(5, 1fr);
+  }
+
+  .contact__badges {
+    width: 90%;
   }
 }
