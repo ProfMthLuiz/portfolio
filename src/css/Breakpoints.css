@@ -218,6 +218,10 @@
     grid-template-columns: 40% 60%;
   }
 
+  .contact__badges {
+    width: 90%;
+  }
+
   .dot-matrix {
     top: 250px;
   }
@@ -234,6 +238,6 @@
   }
 
   .contact__badges {
-    width: 90%;
+    width: 86%;
   }
 }
