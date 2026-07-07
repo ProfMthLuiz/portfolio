@@ -67,7 +67,7 @@ const GlassCard = ({
 
   return (
     <div
-      className="ux-parent ux-parent--mint"
+      className={`ux-parent ux-parent--${color}`}
       onMouseMove={handleMouseMove}
       onMouseLeave={handleMouseLeave}
     >
@@ -117,9 +117,9 @@ const GlassCard = ({
           </div>
 
           <div className="ux-more">
-            <button className="ux-more-btn">
+            <a className="ux-more-btn" href={href} target="_blank">
               <span>Open</span>
-            </button>
+            </a>
 
             <svg
               xmlns="http://www.w3.org/2000/svg"

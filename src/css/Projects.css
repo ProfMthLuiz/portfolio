@@ -1,16 +1,16 @@
 .projects {
-  min-height: 50vh;
+  min-height: 65vh;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  padding: 50px 4rem;
+  padding: 125px 4rem;
 }
 
 .projects .section__title {
   font-size: 2rem;
   font-weight: bold;
-  margin-bottom: 1rem;
+  margin-bottom: 3rem;
   color: #fff;
 }
 

@@ -204,16 +204,44 @@
   transform: translate(0px, -30px);
 }
 
-.contact__button {
+.contact__success {
+  color: #66ff00;
+}
+
+.contact__button,
+.contact__button-loading {
   cursor: pointer;
   width: 100%;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
   padding: 20px 30px;
   background: rgba(57, 255, 20, 0.08);
   border: 1px solid #66ff00;
   color: #66ff00;
+}
+
+.contact__button {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.contact__spinner {
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  animation: contact-spin 0.8s linear infinite;
+}
+
+@keyframes contact-spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.contact__button-loading {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
 }
 
 .contact__button-text {

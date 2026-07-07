@@ -16,7 +16,8 @@ import {
   FaArrowRightLong,
 } from "react-icons/fa6";
 import { MdQuestionAnswer } from "react-icons/md";
-import { AiTwotoneLock } from "react-icons/ai";
+
+import { ImSpinner6 } from "react-icons/im";
 
 import { FaUser, FaPencilAlt } from "react-icons/fa";
 import { GrSend } from "react-icons/gr";
@@ -62,11 +63,12 @@ const sectionsList: SectionData[] = [
 function App() {
   const formRef = useRef<HTMLFormElement>(null);
   const [loading, setLoading] = useState(false);
+  const [message, setMessage] = useState(false);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [activeSection, setActiveSection] = useState<SectionId>("hero");
   const navMenuRef = useRef<HTMLDivElement>(null);
-  const timelineRef = useRef(null);
-  const trackRef = useRef(null);
+  const timelineRef = useRef<gsap.core.Tween | null>(null);
+  const trackRef = useRef<HTMLDivElement>(null);
 
   const text = "EXPLORE - MORE - LET'S -";
   const letters = text.split("");
@@ -147,7 +149,6 @@ function App() {
     e.preventDefault();
     setLoading(true);
 
-    // Substitua pelas suas credenciais reais do EmailJS (ou use variáveis de ambiente)
     emailjs
       .sendForm(
         import.meta.env.VITE_EMAILJS_SERVICE_ID,
@@ -155,16 +156,19 @@ function App() {
         formRef.current!,
         import.meta.env.VITE_EMAILJS_PUBLIC_KEY,
       )
-      .then(
-        () => {
-          alert("Mensagem enviada com sucesso! 🎉");
-          formRef.current?.reset(); // Limpa o formulário automaticamente
-        },
-        (error) => {
-          console.error(error);
-          alert("Erro ao enviar a mensagem, tente novamente.");
-        },
-      )
+      .then(() => {
+        setMessage(true);
+        formRef.current?.reset();
+
+        // Esconde a mensagem após 3 segundos
+        setTimeout(() => {
+          setMessage(false);
+        }, 3000);
+      })
+      .catch((error) => {
+        console.error(error);
+        alert("Erro ao enviar a mensagem, tente novamente.");
+      })
       .finally(() => {
         setLoading(false);
       });
@@ -353,6 +357,7 @@ function App() {
               description="React • TypeScript • Next.js"
               icon={<FaReact />}
               color="mint"
+              href="https://github.com/ProfMthLuiz"
             />
 
             <GlassCard
@@ -360,6 +365,7 @@ function App() {
               description="Laravel • PHP • MySQL"
               icon={<FaLaravel />}
               color="violet"
+              href="https://github.com/ProfMthLuiz"
             />
 
             <GlassCard
@@ -367,6 +373,7 @@ function App() {
               description="React Native"
               icon={<FaNodeJs />}
               color="ocean"
+              href="https://github.com/ProfMthLuiz"
             />
 
             <GlassCard
@@ -374,6 +381,7 @@ function App() {
               description="React • TypeScript • Next.js"
               icon={<FaReact />}
               color="mint"
+              href="https://github.com/ProfMthLuiz"
             />
 
             <GlassCard
@@ -381,34 +389,7 @@ function App() {
               description="Laravel • PHP • MySQL"
               icon={<FaLaravel />}
               color="violet"
-            />
-
-            <GlassCard
-              title="Mobile"
-              description="React Native"
-              icon={<FaNodeJs />}
-              color="ocean"
-            />
-
-            <GlassCard
-              title="Frontend"
-              description="React • TypeScript • Next.js"
-              icon={<FaReact />}
-              color="mint"
-            />
-
-            <GlassCard
-              title="Backend"
-              description="Laravel • PHP • MySQL"
-              icon={<FaLaravel />}
-              color="violet"
-            />
-
-            <GlassCard
-              title="Mobile"
-              description="React Native"
-              icon={<FaNodeJs />}
-              color="ocean"
+              href="https://github.com/ProfMthLuiz"
             />
           </div>
         </div>
@@ -545,10 +526,31 @@ function App() {
               </label>
             </div>
 
-            <button type="submit" className="contact__button">
-              <GrSend />
-              <span className="contact__button-text">Send Message</span>
-              <FaArrowRightLong />
+            {message && (
+              <p className="contact__success">
+                Mensagem enviada com sucesso! 🎉
+              </p>
+            )}
+
+            <button
+              type="submit"
+              className={
+                loading ? "contact__button-loading" : "contact__button"
+              }
+              disabled={loading}
+            >
+              {loading ? (
+                <>
+                  <ImSpinner6 className="contact__spinner" />
+                  <span className="contact__button-text">Sending...</span>
+                </>
+              ) : (
+                <>
+                  <GrSend />
+                  <span className="contact__button-text">Send Message</span>
+                  <FaArrowRightLong />
+                </>
+              )}
             </button>
 
             <p className="contact__privacy">
