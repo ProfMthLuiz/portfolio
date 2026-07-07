@@ -322,7 +322,6 @@ function App() {
       </section>
 
       <section className="stack " id="stack">
-        <h2 className="section__title">My Tech Stack</h2>
         <div className="slider">
           <div
             className="track"
@@ -396,7 +395,6 @@ function App() {
       </section>
 
       <section className="contact" id="contact">
-        <div className="dot-matrix"></div>
         <div className="contact__content">
           <div className="contact__info">
             <div className="contact__status">
@@ -566,6 +564,7 @@ function App() {
             </div>
           </div>
         </div>
+        <div className="dot-matrix"></div>
       </section>
 
       <footer className="main-footer">

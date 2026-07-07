@@ -1,6 +1,6 @@
 /* -============= BREAKPOINTS =============- */
 /* For medium devices <> */
-@media (width >= 540px) {
+@media (width >= 420px) {
   .nav__menu {
     width: 50%;
   }
@@ -17,8 +17,24 @@
     grid-template-columns: 1fr;
   }
 
+  .contact {
+    padding: 7rem 1rem;
+  }
+
   .contact__content {
     grid-template-columns: 1fr;
+  }
+
+  .contact__info,
+  .contact__form {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    padding: 50px 1rem;
+  }
+
+  .contact__row {
+    flex-direction: column;
   }
 
   .contact__button {
@@ -29,8 +45,24 @@
     font-size: 0.8rem;
   }
 
+  .contact__privacy {
+    font-size: 0.8rem;
+  }
+
+  .dot-matrix {
+    top: 40px;
+  }
+
+  .contact__circles {
+    bottom: 0%;
+  }
+
   .footer-container {
     flex-direction: column;
+  }
+
+  .footer-text {
+    font-size: 0.7rem;
   }
 }
 
@@ -174,8 +206,16 @@
     grid-template-columns: repeat(4, 1fr);
   }
 
+  .contact {
+    padding: 10rem 5rem;
+  }
+
   .contact__content {
     grid-template-columns: 40% 60%;
+  }
+
+  .dot-matrix {
+    top: 250px;
   }
 
   .footer-container {
