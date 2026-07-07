@@ -15,8 +15,8 @@
 
 .skills {
   flex-shrink: 0;
-  width: 150px;
-  padding: 5px 20px;
+  width: 200px;
+  padding: 10px 30px;
   border-radius: 30px;
   border: 1px solid var(--color);
   display: flex;
@@ -39,11 +39,11 @@
 }
 
 .skills p {
-  color: #fff;
+  color: var(--color);
 }
 
 .icon {
-  width: 25px;
-  height: 25px;
+  width: 40px;
+  height: 40px;
   color: var(--color);
 }
