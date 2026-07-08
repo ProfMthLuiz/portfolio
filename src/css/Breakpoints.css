@@ -2,12 +2,16 @@
 /* For medium devices <> */
 @media (width >= 320px) {
   .main__footer {
+    background: red;
+  }
+
+  .footer-container {
     background-color: red;
   }
 }
 
 @media (width >= 370px) {
-  .main__footer {
+  .footer-container {
     background-color: blue;
   }
 }
