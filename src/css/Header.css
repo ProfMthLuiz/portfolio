@@ -17,14 +17,14 @@
 }
 
 .nav__logo {
-  color: #fff;
+  color: var(--text);
+  font-family: var(--font-title);
   font-weight: 700;
   font-size: 1.5rem;
-  font-family: "Courier New", Courier, monospace;
 }
 
 .nav__toggle {
-  color: #fff;
+  color: var(--text);
   font-size: 2rem;
   cursor: pointer;
   background: transparent;
@@ -56,8 +56,9 @@
 
 .nav__link {
   position: relative;
-  color: #fff;
-  font-weight: 700;
+  color: var(--text);
+  font-family: var(--font-body);
+  font-weight: 500;
   transition: color 0.3s ease;
 }
 
@@ -66,7 +67,7 @@
   position: absolute;
   width: 0;
   height: 2px;
-  background-color: #00ff40;
+  background-color: var(--accent);
   border-radius: 50%;
   left: 0;
   bottom: -2px;
@@ -78,7 +79,7 @@
 }
 
 .nav__link.active-link {
-  color: #00ff40;
+  color: var(--accent);
   font-weight: bold;
 }
 
@@ -86,7 +87,7 @@
 .nav__link:hover::after {
   opacity: 1;
   width: 50%;
-  color: #00ff40;
+  color: var(--accent);
 }
 
 .nav__close {
@@ -98,7 +99,7 @@
   right: 43px;
   font-size: 2rem;
   cursor: pointer;
-  color: #fff;
+  color: var(--white);
 }
 
 .header::after {

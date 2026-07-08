@@ -1,31 +1,38 @@
 .projects {
   min-height: 65vh;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  padding: 125px 4rem;
+  padding: 100px 0rem;
 }
 
 .projects .section__title {
+  width: 150px;
   font-size: 2rem;
+  margin-left: 2rem;
   font-weight: bold;
   margin-bottom: 3rem;
-  color: #fff;
-}
-
-.cards__projects {
+  color: var(--text);
   position: relative;
-
-  padding-block: 2rem;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  font-family: var(--font-title);
 }
 
-.card__blur {
+.projects .section__title::after {
+  content: "";
   position: absolute;
-  top: 0;
   left: 0;
-  width: 100%;
-  height: 100%;
+  bottom: -10px;
+  width: 50%;
+  height: 2px;
+  background: var(--gradient-accent);
+}
+
+.card__projects {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-block: 2rem;
+  padding: 0 4rem;
 }
 
 .card__container {

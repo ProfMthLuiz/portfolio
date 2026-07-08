@@ -2,7 +2,7 @@
   position: relative;
   overflow: hidden;
   padding: 10rem 5rem;
-  background-color: #000;
+  background-color: var(--background);
   width: 100%;
 }
 
@@ -14,8 +14,8 @@
   place-items: center;
   border-radius: 20px;
   overflow: hidden;
-  box-shadow: 0 0 10px #66ff00;
-  background-color: #000;
+  box-shadow: 0 0 10px var(--accent);
+  background-color: var(--background);
 }
 
 .contact__info,
@@ -24,16 +24,17 @@
   flex-direction: column;
   gap: 10px;
   padding: 50px 5rem;
-  word-break: break-word; /* Força a quebra de palavras longas (como e-mails) */
+  word-break: break-word;
   overflow-wrap: anywhere;
 }
 
 .contact__status,
 .contact__title span {
-  color: #66ff00;
+  color: var(--accent);
 }
 
 .contact__status {
+  font-family: var(--font-body);
   font-style: italic;
   display: flex;
   justify-content: flex-start;
@@ -42,8 +43,9 @@
 }
 
 .contact__title {
+  font-family: var(--font-title);
   position: relative;
-  color: #fff;
+  color: var(--text);
   font-size: 3.5rem;
   font-weight: 700;
   line-height: 1.1;
@@ -57,24 +59,20 @@
   bottom: -20px;
   width: 25%;
   height: 2px;
-  background: linear-gradient(
-    to right,
-    #66ff00,
-    rgba(55, 255, 20, 0.342),
-    rgba(57, 255, 20, 0.08)
-  );
+  background: var(--gradient-accent);
 }
 
 .contact__description {
-  margin-top: 50px;
-  color: #fff;
+  font-family: var(--font-body);
+  color: var(--text);
+  margin-top: 25px;
 }
 
 .contact__details {
   width: 100%;
   position: relative;
   z-index: 100;
-  border-bottom: 2px solid rgba(255, 255, 255, 0.048);
+  border-bottom: 2px solid var(--border-soft);
   padding-bottom: 20px;
 }
 
@@ -86,11 +84,12 @@
 }
 
 .contact__detail span {
-  color: #fff;
+  font-family: var(--font-body);
+  color: var(--text);
 }
 
 .contact__detail span b {
-  color: #66ff00;
+  color: var(--accent);
 }
 
 .contact__detail svg {
@@ -99,9 +98,9 @@
   padding: 10px;
   border-radius: 40px;
   font-size: 20px;
-  background: rgba(57, 255, 20, 0.08);
-  border: 1px solid #66ff00;
-  color: #66ff00;
+  background: var(--accent-soft);
+  border: 1px solid var(--accent);
+  color: var(--accent);
 }
 
 .contact__stack {
@@ -114,7 +113,8 @@
 .contact__stack-title {
   text-transform: uppercase;
   letter-spacing: 3px;
-  color: #fff;
+  font-family: var(--font-title);
+  color: var(--text);
   margin-bottom: 30px;
 }
 
@@ -130,6 +130,7 @@
   justify-content: center;
   align-items: center;
   width: var(--badge-width);
+  font-family: var(--font-body);
   color: var(--color);
   padding: 5px 20px;
   border-radius: 20px;
@@ -146,8 +147,8 @@
 .contact__form {
   width: 100%;
   height: 100%;
-  background-color: #0b0b0b;
-  border-left: 2px solid rgba(255, 255, 255, 0.048);
+  background-color: var(--background);
+  border-left: 2px solid var(--border-soft);
 
   display: flex;
   gap: 25px;
@@ -172,8 +173,8 @@
   width: 100%;
   outline: none;
   background: none;
-  border: 1px solid rgba(255, 255, 255, 0.13);
-  color: #fff;
+  border: 1px solid var(--border-default);
+  color: var(--text);
   font-size: 1rem;
   border-radius: 5px;
   padding: 15px 20px;
@@ -187,8 +188,9 @@
   position: absolute;
   top: 13px;
   left: 10px;
-  color: #fff;
-  background-color: #0b0b0b;
+  font-family: var(--font-title);
+  color: var(--text-secondary);
+  background-color: var(--background);
   padding: 0 10px;
   display: flex;
   align-items: center;
@@ -201,22 +203,23 @@
 .contact__input:valid,
 .contact__textarea:focus,
 .contact__textarea:valid {
-  color: #fff;
-  border: 1px solid #66ff00;
+  font-family: var(--font-title);
+  color: var(--text);
+  border: 1px solid var(--accent);
 }
 
 .contact__input:focus + .contact__label,
 .contact__input:valid + .contact__label,
 .contact__textarea:focus + .contact__label,
 .contact__textarea:valid + .contact__label {
-  color: #66ff00;
+  color: var(--accent);
   height: 30px;
   line-height: 30px;
   transform: translate(0px, -30px);
 }
 
 .contact__success {
-  color: #66ff00;
+  color: var(--accent);
 }
 
 .contact__button,
@@ -224,9 +227,9 @@
   cursor: pointer;
   width: 100%;
   padding: 20px 30px;
-  background: rgba(57, 255, 20, 0.08);
-  border: 1px solid #66ff00;
-  color: #66ff00;
+  background: var(--accent-soft);
+  border: 1px solid var(--accent);
+  color: var(--accent);
 }
 
 .contact__button {
@@ -259,12 +262,14 @@
   text-transform: uppercase;
   font-size: 1.2rem;
   letter-spacing: 2px;
-  color: #fff;
+  font-family: var(--font-body);
+  color: var(--text-secondary);
   transition: all 0.3s ease;
 }
+
 .contact__button:hover .contact__button-text,
 .contact__button:hover svg:nth-child(3) {
-  color: #66ff00;
+  color: var(--text);
 }
 
 .contact__button svg {
@@ -272,14 +277,15 @@
 }
 
 .contact__button svg:nth-child(3) {
-  color: #fff;
+  color: var(--text-secondary);
 }
 
 .contact__privacy {
   display: flex;
   align-items: center;
   gap: 5px;
-  color: #696969;
+  font-family: var(--font-body);
+  color: var(--text-secondary);
   font-style: italic;
 }
 
@@ -291,7 +297,6 @@
   position: relative;
   width: 500px;
   height: 300px;
-  background-color: #0b0b0b;
   border-radius: 12px;
   overflow: hidden;
 }
@@ -302,7 +307,12 @@
   left: 0px;
   width: 70px;
   height: 140px;
-  background-image: radial-gradient(rgb(0, 255, 0) 1.5px, transparent 1.5px);
+  .dot-matrix {
+    background-image: radial-gradient(
+      var(--accent-dot) 1.5px,
+      transparent 1.5px
+    );
+  }
   background-size: 12px 12px;
   pointer-events: none;
   z-index: 1;
@@ -334,18 +344,18 @@
   width: 160px;
   height: 160px;
   padding: 15px;
-  border: 1px solid rgba(102, 255, 0, 0.15);
+  border: 1px solid var(--accent-glow);
 }
 
 .circle-mid {
   width: 100%;
   height: 100%;
   padding: 15px;
-  border: 1px solid rgba(102, 255, 0, 0.3);
+  border: 1px solid var(--accent-glow-medium);
 }
 
 .circle-inner {
   width: 100%;
   height: 100%;
-  border: 1px solid rgba(102, 255, 0, 0.45);
+  border: 1px solid var(--accent-glow-strong);
 }

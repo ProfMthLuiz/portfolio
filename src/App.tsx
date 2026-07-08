@@ -55,7 +55,6 @@ interface SectionData {
 const sectionsList: SectionData[] = [
   { id: "hero", label: "Home" },
   { id: "about", label: "About" },
-  { id: "stack", label: "Stack" },
   { id: "projects", label: "Projects" },
   { id: "contact", label: "Contact" },
 ];
@@ -223,25 +222,28 @@ function App() {
       <section className="hero " id="hero">
         <div className="hero__container container grid">
           <div className="hero__data">
-            <h3 className="hero__subtitle">Hi! I'm Matheus</h3>
+            <h3 className="hero__subtitle">Olá, eu sou o Matheus</h3>
             <h1 className="hero__title">
-              Fullstack Developer & <br />
+              Desenvolvedor Full Stack & <br />
               <TypeAnimation
                 sequence={[
-                  "UI/UX Enthusiast.",
+                  "Criando experiências digitais.",
                   2000,
-                  "Web Developer.",
+                  "Transformando ideias em soluções.",
                   2000,
-                  "Problem Solver.",
+                  "Construindo aplicações modernas.",
+                  2000,
+                  "Sempre aprendendo e evoluindo.",
                   2000,
                 ]}
                 wrapper="span"
-                cursor={true}
+                cursor
                 repeat={Infinity}
               />
             </h1>
             <p className="hero__description">
-              I create beautiful and functional web applications.
+              Transformo ideias em aplicações web modernas, responsivas e
+              intuitivas.
             </p>
           </div>
 
@@ -300,9 +302,9 @@ function App() {
           </div>
 
           <div className="about__data">
-            <h2 className="section__title">ABOUT ME</h2>
+            <h2 className="section__title">SOBRE MIM</h2>
             <span className="about__subtitle">
-              Creating modern experiences through code and creativity.
+              Criando experiências modernas através de código e criatividade.
             </span>
 
             <p className="about__description">
@@ -346,8 +348,8 @@ function App() {
         </div>
       </section>
 
-      <section className="projects section" id="projects">
-        <h2 className="section__title">Projects</h2>
+      <section className="projects" id="projects">
+        <h2 className="section__title">Projetos</h2>
 
         <div className="card__projects">
           <div className="card__container container__projects">
@@ -399,35 +401,34 @@ function App() {
           <div className="contact__info">
             <div className="contact__status">
               <HiBadgeCheck />
-              <span>Available for new projects</span>
+              <span>Disponível para novos projetos</span>
             </div>
 
             <h2 className="contact__title">
-              Let's Build
+              Vamos
               <br />
-              <span>Something</span>
+              <span>Construir</span>
               <br />
-              Together.
+              Algo Juntos.
             </h2>
 
             <p className="contact__description">
-              I'm currently available for freelance projects, full-time
-              opportunities and collaborations. Tell me about your idea and I'll
-              get back to you.
+              Atualmente estou disponível para projetos freelance. Me conte
+              sobre a sua ideia e eu entrarei em contato.
             </p>
 
             <ul className="contact__details">
               <li className="contact__detail">
                 <MdQuestionAnswer />
                 <span>
-                  I usually respond within <b>24 hours.</b>
+                  Costumo responder em até <b>24 horas.</b>
                 </span>
               </li>
 
               <li className="contact__detail">
                 <FaLocationDot />
                 <span>
-                  Based in <b>Brazil</b>
+                  Atuando do <b>Brasil</b>
                 </span>
               </li>
 
@@ -440,7 +441,9 @@ function App() {
             </ul>
 
             <div className="contact__stack">
-              <span className="contact__stack-title">Tech Stack</span>
+              <span className="contact__stack-title">
+                Tecnologias Utilizadas
+              </span>
 
               <div className="contact__badges">
                 {allSkills.map(({ name, icon: Icon, color, width }, index) => (
@@ -481,7 +484,7 @@ function App() {
                   required
                 />
                 <label htmlFor="name" className="contact__label">
-                  <FaUser /> Name
+                  <FaUser /> Nome
                 </label>
               </div>
 
@@ -495,7 +498,7 @@ function App() {
                 />
                 <label htmlFor="email" className="contact__label">
                   <MdEmail />
-                  Email
+                  E-mail
                 </label>
               </div>
             </div>
@@ -511,7 +514,7 @@ function App() {
 
               <label htmlFor="subject" className="contact__label">
                 <FaPencilAlt />
-                Subject
+                Assunto
               </label>
             </div>
 
@@ -525,7 +528,7 @@ function App() {
 
               <label htmlFor="message" className="contact__label">
                 <LuMessageSquareText />
-                Message
+                Mensagem
               </label>
             </div>
 
@@ -558,7 +561,8 @@ function App() {
 
             <p className="contact__privacy">
               <GiPadlock />
-              Your information is safe. I'll never share your data.
+              Suas informações estão seguras. Eu nunca compartilharei seus
+              dados.
             </p>
           </form>
         </div>
@@ -584,14 +588,10 @@ function App() {
             <span>Matheus Luiz</span>
           </a>
 
-          <div className="footer-text-wrapper">
-            <p className="footer-text">
-              <span className="footer-copyright">
-                © 2026 <b>Matheus Luiz.</b> Building experiences, one line of
-                code at a time.
-              </span>
-            </p>
-          </div>
+          <p className="footer-text-copyright">
+            © 2026 <b>Matheus Luiz.</b> Construindo experiências, uma linha de
+            código por vez.
+          </p>
 
           <div className="footer-social">
             <a
@@ -611,9 +611,9 @@ function App() {
               <FaGithub />
             </a>
             <a
-              href="#"
+              href="mailto:mthluiz99@gmail.com"
               className="footer-social-link"
-              title="GitHub"
+              title="E-mail"
               target="_blank"
             >
               <MdEmail />

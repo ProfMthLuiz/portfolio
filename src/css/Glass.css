@@ -1,14 +1,3 @@
-:root {
-  font-family: "Plus Jakarta Sans", "Tajawal", system-ui, sans-serif;
-  --page-deep: #040807;
-  --page-mid: #0a1620;
-  --neon-mint: #00ffd6;
-  --neon-green: #08e260;
-  --neon-violet: #c084fc;
-  --neon-pink: #f472b6;
-  --glass-edge: rgba(255, 255, 255, 0.85);
-}
-
 html {
   scroll-behavior: smooth;
 }
@@ -43,14 +32,6 @@ html {
     rgba(5, 71, 17, 0) 40px 50px 25px -40px,
     rgba(5, 71, 17, 0.28) 0 25px 25px -5px;
 }
-
-/* .ux-parent:hover .ux-card {
-  transform: rotate3d(1, 1, 0, 28deg);
-  box-shadow:
-    rgba(5, 71, 17, 0.45) 28px 48px 28px -38px,
-    rgba(0, 255, 214, 0.12) 0 0 60px -10px,
-    rgba(5, 71, 17, 0.15) 0 25px 35px 0;
-} */
 
 /* Themes */
 .ux-parent--mint {
@@ -223,7 +204,7 @@ html {
   position: absolute;
   bottom: 20px;
   left: 20px;
-  right: 20px;
+  right: 0px;
   display: flex;
   align-items: center;
   justify-content: space-between;

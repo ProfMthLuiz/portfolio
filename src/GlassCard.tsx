@@ -118,7 +118,7 @@ const GlassCard = ({
 
           <div className="ux-more">
             <a className="ux-more-btn" href={href} target="_blank">
-              <span>Open</span>
+              <span>Visualizar</span>
             </a>
 
             <svg

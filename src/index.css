@@ -1,19 +1,58 @@
-:root {
-  --text: #6b6375;
-  --text-h: #08060d;
-  --bg: #fff;
-  --border: #e5e4e7;
-  --code-bg: #f4f3ec;
-  --accent: #aa3bff;
-  --accent-bg: rgba(170, 59, 255, 0.1);
-  --accent-border: rgba(170, 59, 255, 0.5);
-  --social-bg: rgba(244, 243, 236, 0.5);
-  --shadow:
-    rgba(0, 0, 0, 0.1) 0 10px 15px -3px, rgba(0, 0, 0, 0.05) 0 4px 6px -2px;
+@import url("https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Space+Grotesk:wght@300..700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Space+Grotesk:wght@300..700&display=swap");
 
-  --sans: system-ui, "Segoe UI", Roboto, sans-serif;
-  --heading: system-ui, "Segoe UI", Roboto, sans-serif;
-  --mono: ui-monospace, Consolas, monospace;
+:root {
+  /* Fonts */
+  --font-title: "Space Grotesk", sans-serif;
+  --font-body: "Inter", sans-serif;
+
+  /* Background */
+  --background: #0a0a0a;
+  --surface: #161616;
+  --white: #ffffff;
+
+  /* Text */
+  --text: #ffffff;
+  --text-secondary: #9ca3af;
+  --text-dark: #0a0a0a;
+
+  /* Accent */
+  --accent: hsl(142, 71%, 45%);
+  --accent-light: hsl(142, 75%, 85%);
+  --accent-medium: hsl(142, 75%, 60%);
+  --accent-dark: hsl(142, 40%, 28%);
+  --accent-soft: hsla(142, 71%, 45%, 0.08);
+  --accent-glow: hsla(142, 71%, 45%, 0.15);
+  --accent-glow-medium: hsla(142, 71%, 45%, 0.3);
+  --accent-glow-strong: hsla(142, 71%, 45%, 0.45);
+  --accent-dot: var(--accent);
+
+  /* Gradients */
+  --gradient-accent: linear-gradient(
+    to right,
+    var(--accent),
+    hsla(142, 75%, 45%, 0.35),
+    hsla(142, 75%, 45%, 0.08)
+  );
+
+  /* Borders */
+  --border-soft: rgba(255, 255, 255, 0.048);
+  --border-default: rgba(255, 255, 255, 0.13);
+
+  /* Stack Cards */
+  --page-deep: #040807;
+  --page-mid: #0a1620;
+  --neon-mint: #00ffd6;
+  --neon-green: #08e260;
+  --neon-violet: #c084fc;
+  --neon-pink: #f472b6;
+  --glass-edge: rgba(255, 255, 255, 0.85);
+
+  /* Bullets */
+  --swiper-pagination-color: var(--accent);
+
+  --swiper-pagination-bullet-inactive-color: #ffffff;
+  --swiper-pagination-bullet-inactive-opacity: 0.35;
 }
 
 *,
@@ -30,5 +69,13 @@ html,
 body {
   width: 100%;
   height: 100%;
-  background-color: #000;
+  background-color: var(--background);
+  scroll-behavior: smooth;
+}
+
+.swiper-pagination-bullet {
+  transition:
+    background-color 0.3s ease,
+    opacity 0.3s ease,
+    transform 0.3s ease !important;
 }

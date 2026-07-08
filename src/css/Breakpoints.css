@@ -1,8 +1,12 @@
 /* -============= BREAKPOINTS =============- */
 /* For medium devices <> */
-@media (width >= 350px) {
+@media (width >= 350px) and (width <= 767px) {
   .nav__menu {
     width: 50%;
+  }
+
+  .about {
+    padding: 50px 1rem;
   }
 
   .about__container {
@@ -69,10 +73,6 @@
   .footer-container {
     flex-direction: column;
   }
-
-  .footer-text {
-    font-size: 0.7rem;
-  }
 }
 
 @media screen and (width>= 768px) {
@@ -94,32 +94,21 @@
     left: -75px;
   }
 
-  .projects {
-    padding: 125px 1rem;
+  .card__projects {
+    padding: 0px 1rem;
   }
 
   .card__container {
     grid-template-columns: repeat(3, 1fr);
   }
 
-  .footer-text {
-    font-size: 0.95rem;
+  .footer-container {
+    flex-direction: column;
   }
 }
 
 /* For large devices <> */
 @media (width >= 1150px) {
-  .hero {
-    padding-block: 10rem 2rem;
-    padding-inline: 7rem;
-  }
-
-  .blob-small {
-    width: 150px;
-    height: 150px;
-    filter: blur(50px);
-  }
-
   .about .blob-small {
     width: 300px;
     height: 300px;
@@ -159,10 +148,11 @@
   }
 
   .about__container {
-    display: grid;
-    row-gap: 3rem;
-    overflow-y: clip;
     height: 100vh;
+    grid-template-columns: repeat(2, 1fr);
+    align-items: center;
+    column-gap: 5.5rem;
+    padding-top: 3rem;
   }
 
   .about__box-1,
@@ -192,13 +182,6 @@
 
   .hero .blob-small:nth-child(2) {
     top: 25rem;
-  }
-
-  .about__container {
-    grid-template-columns: repeat(2, 1fr);
-    align-items: center;
-    column-gap: 5.5rem;
-    padding-top: 3rem;
   }
 
   .about__data,

@@ -32,7 +32,7 @@
 }
 
 .about__box-1 {
-  background-color: hsla(100, 25%, 32%);
+  background-color: var(--accent-dark);
 }
 
 .about__box-2 {
@@ -40,7 +40,7 @@
   left: 0.75rem;
   bottom: 0.75em;
   rotate: 5deg;
-  background-color: #fff;
+  background-color: var(--white);
 }
 
 .about__box-3 {
@@ -50,8 +50,8 @@
   rotate: 10deg;
   background: linear-gradient(
     180deg,
-    hsl(100, 75%, 85%) 0%,
-    hsl(100, 75%, 60%) 100%
+    var(--accent-light) 0%,
+    var(--accent-medium) 100%
   );
 }
 
@@ -63,7 +63,7 @@
   right: -1.25rem;
   mask-image: linear-gradient(
     to bottom,
-    hsla(100, 75%, 60%, 1) 70%,
+    var(--accent-dark) 70%,
     transparent 100%
   );
 }
@@ -75,34 +75,48 @@
   justify-self: center;
 }
 
-.about__data {
-  max-width: 560px;
-}
-
 .about__data .section__title {
+  font-family: var(--font-title);
+  width: 300px;
   text-align: initial;
   font-size: 3rem;
-  color: #fff;
+  color: var(--text);
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  position: relative;
+}
+
+.about__data .about__subtitle::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -5px;
+  width: 40%;
+  height: 2px;
+  background: var(--gradient-accent);
 }
 
 .about__data .about__subtitle {
-  font-size: 1.2rem;
-  color: #48ff00;
+  font-family: var(--font-body);
+  position: relative;
+  font-size: 1.5rem;
+  color: var(--accent-medium);
   font-style: italic;
+  margin-bottom: 5px;
 }
 
 .about__description {
+  font-family: var(--font-body);
+  margin-top: 1rem;
   font-size: 1.5rem;
   font-weight: 100;
-  margin-top: 1rem;
   margin-bottom: 2rem;
-  color: #fff;
+  color: var(--text);
 }
 
 .about__description b {
-  color: #48ff00;
+  color: var(--accent-medium);
   font-style: italic;
-  font-weight: bold;
 }
 
 .social-link-linkedin {
@@ -124,7 +138,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  background: #48ff00;
+  background: var(--accent);
   color: #000;
   text-decoration: none;
   clip-path: polygon(25% 0%, 75% 0%, 100% 50%, 75% 100%, 25% 100%, 0% 50%);
@@ -134,5 +148,5 @@
 .social-link-github:hover,
 .social-link-linkedin:hover {
   transform: scale(1.1);
-  background-color: #fff;
+  background-color: var(--background-light);
 }
