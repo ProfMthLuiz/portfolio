@@ -1,5 +1,17 @@
 /* -============= BREAKPOINTS =============- */
 /* For medium devices <> */
+@media (width >= 320px) {
+  .main__footer {
+    background-color: red;
+  }
+}
+
+@media (width >= 370px) {
+  .main__footer {
+    background-color: blue;
+  }
+}
+
 @media (width >= 420px) {
   .nav__menu {
     width: 50%;
