@@ -24,6 +24,8 @@
   flex-direction: column;
   gap: 10px;
   padding: 50px 5rem;
+  word-break: break-word; /* Força a quebra de palavras longas (como e-mails) */
+  overflow-wrap: anywhere;
 }
 
 .contact__status,
@@ -117,9 +119,9 @@
 }
 
 .contact__badges {
-  display: grid;
-  margin-bottom: 5px;
-  grid-template-columns: repeat(3, max-content);
+  display: flex;
+  flex-wrap: wrap;
+  width: 100%;
 }
 
 .contact__badge {
@@ -132,7 +134,7 @@
   padding: 5px 20px;
   border-radius: 20px;
   border: 1px solid var(--color);
-  margin-right: 5px;
+  margin: 5px 0px 0px 5px;
 }
 
 .contact__badge-icon {

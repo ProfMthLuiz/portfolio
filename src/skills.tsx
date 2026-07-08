@@ -74,48 +74,7 @@ export const skills = [
   },
 ];
 
-// export const skillsContact = [
-//   {
-//     name: "React",
-//     icon: FaReact,
-//     color: "#61DAFB",
-//     width: "120px",
-//   },
-//   {
-//     name: "TypeScript",
-//     icon: BsTypescript,
-//     color: "#3178C6",
-//     width: "150px",
-//   },
-
-//   {
-//     name: "MySQL",
-//     icon: SiMysql,
-//     color: "#4479A1",
-//     width: "130px",
-//   },
-//   {
-//     name: "PHP",
-//     icon: FaPhp,
-//     color: "#777BB4",
-//     width: "150px",
-//   },
-
-//   {
-//     name: "Laravel",
-//     icon: FaLaravel,
-//     color: "#FF2D20",
-//     width: "170px",
-//   },
-//   {
-//     name: "Git",
-//     icon: FaGitAlt,
-//     color: "#F05032",
-//     width: "120px",
-//   },
-// ];
-
-export const skillsContact = [
+export const allSkills = [
   {
     name: "React",
     icon: FaReact,
@@ -135,8 +94,6 @@ export const skillsContact = [
     color: "#4479A1",
     width: "130px",
   },
-];
-export const skillsContato = [
   {
     name: "PHP",
     icon: FaPhp,

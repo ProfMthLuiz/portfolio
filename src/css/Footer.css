@@ -52,6 +52,7 @@
 .footer-text-wrapper {
   display: flex;
   flex-direction: column;
+  text-align: center;
   gap: 0.8rem;
 }
 

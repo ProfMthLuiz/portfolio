@@ -1,22 +1,6 @@
 /* -============= BREAKPOINTS =============- */
 /* For medium devices <> */
-@media (width >= 320px) {
-  .main__footer {
-    background: red;
-  }
-
-  .footer-container {
-    background-color: red;
-  }
-}
-
-@media (width >= 370px) {
-  .footer-container {
-    background-color: blue;
-  }
-}
-
-@media (width >= 420px) {
+@media (width >= 350px) {
   .nav__menu {
     width: 50%;
   }
@@ -27,6 +11,11 @@
 
   .about__images {
     padding-top: 100px;
+  }
+
+  .social-link-github,
+  .social-link-linkedin {
+    left: -50px;
   }
 
   .card__container {
@@ -47,6 +36,10 @@
     flex-direction: column;
     gap: 10px;
     padding: 50px 1rem;
+  }
+
+  .contact__title {
+    font-size: 3rem;
   }
 
   .contact__row {
@@ -96,16 +89,17 @@
     font-size: 1.2rem;
   }
 
+  .social-link-github,
+  .social-link-linkedin {
+    left: -75px;
+  }
+
   .projects {
     padding: 125px 1rem;
   }
 
   .card__container {
     grid-template-columns: repeat(3, 1fr);
-  }
-
-  .contact__badges {
-    width: 100%;
   }
 
   .footer-text {
@@ -234,10 +228,6 @@
     grid-template-columns: 40% 60%;
   }
 
-  .contact__badges {
-    width: 90%;
-  }
-
   .dot-matrix {
     top: 250px;
   }
@@ -254,6 +244,6 @@
   }
 
   .contact__badges {
-    width: 86%;
+    width: 80%;
   }
 }

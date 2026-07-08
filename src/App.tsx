@@ -22,7 +22,7 @@ import { ImSpinner6 } from "react-icons/im";
 import { FaUser, FaPencilAlt } from "react-icons/fa";
 import { GrSend } from "react-icons/gr";
 
-import { skills, skillsContact, skillsContato } from "./skills";
+import { skills, allSkills } from "./skills";
 import { useEffect, useRef, useState } from "react";
 
 import { LuMessageSquareText } from "react-icons/lu";
@@ -443,42 +443,21 @@ function App() {
               <span className="contact__stack-title">Tech Stack</span>
 
               <div className="contact__badges">
-                {skillsContact.map(
-                  ({ name, icon: Icon, color, width }, index) => (
-                    <span
-                      className="contact__badge"
-                      key={`${name}-${index}`}
-                      style={
-                        {
-                          "--color": color,
-                          "--badge-width": width,
-                        } as React.CSSProperties
-                      }
-                    >
-                      <Icon className="contact__badge-icon " />
-                      {name}
-                    </span>
-                  ),
-                )}
-              </div>
-              <div className="contact__badges">
-                {skillsContato.map(
-                  ({ name, icon: Icon, color, width }, index) => (
-                    <span
-                      className="contact__badge"
-                      key={`${name}-${index}`}
-                      style={
-                        {
-                          "--color": color,
-                          "--badge-width": width,
-                        } as React.CSSProperties
-                      }
-                    >
-                      <Icon className="contact__badge-icon " />
-                      {name}
-                    </span>
-                  ),
-                )}
+                {allSkills.map(({ name, icon: Icon, color, width }, index) => (
+                  <span
+                    className="contact__badge"
+                    key={`${name}-${index}`}
+                    style={
+                      {
+                        "--color": color,
+                        "--badge-width": width,
+                      } as React.CSSProperties
+                    }
+                  >
+                    <Icon className="contact__badge-icon " />
+                    {name}
+                  </span>
+                ))}
               </div>
             </div>
 

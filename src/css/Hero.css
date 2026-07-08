@@ -81,7 +81,7 @@
   z-index: 1;
   top: 100%;
   left: 50%;
-  transform: translate(-50%, -125%);
+  transform: translate(-50%, -150%);
   width: 100px;
   height: 100px;
   border: 20px solid hsla(100, 24%, 4%, 0.5);
