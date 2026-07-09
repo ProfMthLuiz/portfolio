@@ -44,6 +44,7 @@ import { FluidCursor } from "./FluidCursor";
 import GlassCard from "./GlassCard";
 
 import emailjs from "@emailjs/browser";
+import ProjectSlider from "./components/TravelSlider/ProjectSlider";
 
 type SectionId = "hero" | "about" | "stack" | "projects" | "contact";
 
@@ -621,6 +622,8 @@ function App() {
           </div>
         </div>
       </footer>
+
+      <ProjectSlider />
     </div>
   );
 }

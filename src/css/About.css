@@ -148,5 +148,5 @@
 .social-link-github:hover,
 .social-link-linkedin:hover {
   transform: scale(1.1);
-  background-color: var(--background-light);
+  background-color: var(--white);
 }
