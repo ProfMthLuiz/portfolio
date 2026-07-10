@@ -9,12 +9,7 @@ import "./css/Contact.css";
 import "./css/Footer.css";
 import "./css/Breakpoints.css";
 
-import {
-  FaReact,
-  FaLaravel,
-  FaNodeJs,
-  FaArrowRightLong,
-} from "react-icons/fa6";
+import { FaArrowRightLong } from "react-icons/fa6";
 import { MdQuestionAnswer } from "react-icons/md";
 
 import { ImSpinner6 } from "react-icons/im";
@@ -41,10 +36,9 @@ import avatar from "./assets/avatar.png";
 
 import gsap from "gsap";
 import { FluidCursor } from "./FluidCursor";
-import GlassCard from "./GlassCard";
 
 import emailjs from "@emailjs/browser";
-import ProjectSlider from "./components/TravelSlider/ProjectSlider";
+import ProjectSlider from "./components/ProjectSlider/ProjectSlider";
 
 type SectionId = "hero" | "about" | "stack" | "projects" | "contact";
 
@@ -351,50 +345,7 @@ function App() {
 
       <section className="projects" id="projects">
         <h2 className="section__title">Projetos</h2>
-
-        <div className="card__projects">
-          <div className="card__container container__projects">
-            <GlassCard
-              title="Frontend"
-              description="React • TypeScript • Next.js"
-              icon={<FaReact />}
-              color="mint"
-              href="https://github.com/ProfMthLuiz"
-            />
-
-            <GlassCard
-              title="Backend"
-              description="Laravel • PHP • MySQL"
-              icon={<FaLaravel />}
-              color="violet"
-              href="https://github.com/ProfMthLuiz"
-            />
-
-            <GlassCard
-              title="Mobile"
-              description="React Native"
-              icon={<FaNodeJs />}
-              color="ocean"
-              href="https://github.com/ProfMthLuiz"
-            />
-
-            <GlassCard
-              title="Frontend"
-              description="React • TypeScript • Next.js"
-              icon={<FaReact />}
-              color="mint"
-              href="https://github.com/ProfMthLuiz"
-            />
-
-            <GlassCard
-              title="Backend"
-              description="Laravel • PHP • MySQL"
-              icon={<FaLaravel />}
-              color="violet"
-              href="https://github.com/ProfMthLuiz"
-            />
-          </div>
-        </div>
+        <ProjectSlider />
       </section>
 
       <section className="contact" id="contact">
@@ -622,8 +573,6 @@ function App() {
           </div>
         </div>
       </footer>
-
-      <ProjectSlider />
     </div>
   );
 }

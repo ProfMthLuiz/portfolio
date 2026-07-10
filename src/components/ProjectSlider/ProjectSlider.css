@@ -1,0 +1,18 @@
+.slider-section .swiper {
+  padding: 0 2rem;
+}
+
+.swiper-wrapper {
+  padding: 2rem 2rem;
+}
+
+.swiper-slide {
+  width: 300px;
+  height: 400px;
+  filter: blur(2px);
+  transition: filter 0.3s ease;
+}
+
+.swiper-slide-active {
+  filter: blur(0px);
+}

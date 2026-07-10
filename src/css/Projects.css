@@ -25,20 +25,3 @@
   height: 2px;
   background: var(--gradient-accent);
 }
-
-.card__projects {
-  position: relative;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  padding-block: 2rem;
-  padding: 0 4rem;
-}
-
-.card__container {
-  position: relative;
-  display: grid;
-  grid-template-columns: 260px;
-  justify-content: center;
-  gap: 2rem;
-}

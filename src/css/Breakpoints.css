@@ -22,10 +22,6 @@
     left: -50px;
   }
 
-  .card__container {
-    grid-template-columns: 1fr;
-  }
-
   .contact {
     padding: 7rem 1rem;
   }
@@ -92,14 +88,6 @@
   .social-link-github,
   .social-link-linkedin {
     left: -75px;
-  }
-
-  .card__projects {
-    padding: 0px 1rem;
-  }
-
-  .card__container {
-    grid-template-columns: repeat(3, 1fr);
   }
 
   .footer-container {
@@ -199,10 +187,6 @@
     place-content: center;
   }
 
-  .card__container {
-    grid-template-columns: repeat(4, 1fr);
-  }
-
   .contact {
     padding: 10rem 5rem;
   }
@@ -222,10 +206,6 @@
 }
 
 @media (width >= 1520px) {
-  .card__container {
-    grid-template-columns: repeat(5, 1fr);
-  }
-
   .contact__badges {
     width: 80%;
   }
