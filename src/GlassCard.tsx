@@ -6,17 +6,19 @@ import { useRef, useLayoutEffect } from "react";
 interface GlassCardProps {
   title: string;
   description: string;
-  icon: React.ReactNode;
-  color?: "mint" | "violet" | "ocean";
+  icons: React.ReactNode[];
+  color?: string;
   href?: string;
+  image: string;
 }
 
 const GlassCard = ({
   title,
   description,
-  icon,
-  color = "mint",
+  icons,
+  color,
   href,
+  image,
 }: GlassCardProps) => {
   const cardRef = useRef<HTMLDivElement>(null);
 
@@ -71,7 +73,13 @@ const GlassCard = ({
       onMouseMove={handleMouseMove}
       onMouseLeave={handleMouseLeave}
     >
-      <div className="ux-card" ref={cardRef}>
+      <div
+        className="ux-card"
+        ref={cardRef}
+        style={{
+          backgroundImage: `url(${image})`,
+        }}
+      >
         <div className="ux-logo" aria-hidden>
           <span className="ux-circle" />
           <span className="ux-circle" />
@@ -102,32 +110,18 @@ const GlassCard = ({
         </div>
 
         <div className="ux-bottom">
-          <div className="ux-social">
-            <button className="ux-social-btn" aria-label="Instagram">
-              {icon}
-            </button>
-
-            <button className="ux-social-btn" aria-label="X">
-              {icon}
-            </button>
-
-            <button className="ux-social-btn" aria-label="Discord">
-              {icon}
-            </button>
+          <div className="ux-project">
+            {icons.map((icon, index) => (
+              <button key={index} className="ux-project-btn">
+                {icon}
+              </button>
+            ))}
           </div>
 
           <div className="ux-more">
             <a className="ux-more-btn" href={href} target="_blank">
               <span>Visualizar</span>
             </a>
-
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              viewBox="0 0 24 24"
-              aria-hidden
-            >
-              <path d="m6 9 6 6 6-6" />
-            </svg>
           </div>
         </div>
       </div>

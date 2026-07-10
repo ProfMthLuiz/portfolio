@@ -13,7 +13,11 @@ import "swiper/css/pagination";
 
 import "./ProjectSlider.css";
 
+import habitTracker from "../../assets/habit_tracker.png";
+
 import { FaReact, FaLaravel, FaNodeJs } from "react-icons/fa6";
+
+import { SiTypescript } from "react-icons/si";
 
 import GlassCard from "../../GlassCard";
 
@@ -24,7 +28,6 @@ export default function ProjectSlider() {
         effect="coverflow"
         grabCursor={true}
         centeredSlides={true}
-        slidesPerView={3}
         loop={true}
         spaceBetween={30}
         modules={[EffectCoverflow, Pagination, Keyboard, Autoplay]}
@@ -43,21 +46,23 @@ export default function ProjectSlider() {
         pagination={{ clickable: true }}
         initialSlide={0}
         breakpoints={{
-          // Mobile pequeno
-          320: {
-            slidesPerView: 1.5,
+          350: {
+            slidesPerView: 1,
           },
 
-          // Mobile / tablet pequeno
           640: {
-            slidesPerView: 2,
+            slidesPerView: 1,
             spaceBetween: 20,
           },
 
-          // Desktop
           1024: {
+            slidesPerView: 2,
+            spaceBetween: 50,
+          },
+
+          1600: {
             slidesPerView: 3,
-            spaceBetween: 30,
+            spaceBetween: 50,
           },
         }}
       >
@@ -65,19 +70,29 @@ export default function ProjectSlider() {
           <GlassCard
             title="Frontend"
             description="React • TypeScript • Next.js"
-            icon={<FaReact />}
+            icons={[
+              <FaReact key="react" />,
+              <SiTypescript key="ts" />,
+              <FaLaravel key="laravel" />,
+            ]}
             color="mint"
             href="https://github.com/ProfMthLuiz"
+            image="https://www.chromethemer.com/wallpapers/chromebook-wallpapers/images/960/db-super-chromebook-wallpaper.jpg"
           />
         </SwiperSlide>
 
         <SwiperSlide>
           <GlassCard
-            title="Backend"
-            description="Laravel • PHP • MySQL"
-            icon={<FaLaravel />}
-            color="violet"
+            title="Habit Tracker"
+            description="Daily habit tracker"
+            icons={[
+              <FaReact key="react" />,
+              <SiTypescript key="ts" />,
+              <FaLaravel key="laravel" />,
+            ]}
+            color="orange"
             href="https://github.com/ProfMthLuiz"
+            image={habitTracker}
           />
         </SwiperSlide>
 
@@ -85,9 +100,14 @@ export default function ProjectSlider() {
           <GlassCard
             title="Mobile"
             description="React Native"
-            icon={<FaNodeJs />}
-            color="ocean"
+            icons={[
+              <FaReact key="react" />,
+              <SiTypescript key="ts" />,
+              <FaLaravel key="laravel" />,
+            ]}
             href="https://github.com/ProfMthLuiz"
+            color="orange"
+            image="https://www.chromethemer.com/wallpapers/chromebook-wallpapers/images/960/db-super-chromebook-wallpaper.jpg"
           />
         </SwiperSlide>
 
@@ -95,9 +115,13 @@ export default function ProjectSlider() {
           <GlassCard
             title="Frontend"
             description="React • TypeScript • Next.js"
-            icon={<FaReact />}
-            color="mint"
+            icons={[
+              <FaReact key="react" />,
+              <SiTypescript key="ts" />,
+              <FaLaravel key="laravel" />,
+            ]}
             href="https://github.com/ProfMthLuiz"
+            image="https://www.chromethemer.com/wallpapers/chromebook-wallpapers/images/960/db-super-chromebook-wallpaper.jpg"
           />
         </SwiperSlide>
 
@@ -105,9 +129,13 @@ export default function ProjectSlider() {
           <GlassCard
             title="Backend"
             description="Laravel • PHP • MySQL"
-            icon={<FaLaravel />}
-            color="violet"
+            icons={[
+              <FaReact key="react" />,
+              <SiTypescript key="ts" />,
+              <FaLaravel key="laravel" />,
+            ]}
             href="https://github.com/ProfMthLuiz"
+            image="https://www.chromethemer.com/wallpapers/chromebook-wallpapers/images/960/db-super-chromebook-wallpaper.jpg"
           />
         </SwiperSlide>
 
@@ -115,9 +143,13 @@ export default function ProjectSlider() {
           <GlassCard
             title="Backend"
             description="Laravel • PHP • MySQL"
-            icon={<FaLaravel />}
-            color="violet"
+            icons={[
+              <FaReact key="react" />,
+              <SiTypescript key="ts" />,
+              <FaLaravel key="laravel" />,
+            ]}
             href="https://github.com/ProfMthLuiz"
+            image="https://www.chromethemer.com/wallpapers/chromebook-wallpapers/images/960/db-super-chromebook-wallpaper.jpg"
           />
         </SwiperSlide>
       </Swiper>

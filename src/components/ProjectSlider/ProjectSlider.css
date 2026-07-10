@@ -1,3 +1,7 @@
+.slider-section {
+  width: 100%;
+}
+
 .slider-section .swiper {
   padding: 0 2rem;
 }
@@ -7,7 +11,6 @@
 }
 
 .swiper-slide {
-  width: 300px;
   height: 400px;
   filter: blur(2px);
   transition: filter 0.3s ease;

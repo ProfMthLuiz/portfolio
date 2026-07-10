@@ -1,11 +1,7 @@
-html {
-  scroll-behavior: smooth;
-}
-
 /* ——— Core 3D shell (Uiverse hover) ——— */
 .ux-parent {
   width: 100%;
-  max-width: 400px;
+  max-width: 450px;
   height: 300px;
   margin-inline: auto;
   perspective: 1000px;
@@ -23,7 +19,10 @@ html {
   position: relative;
   height: 100%;
   border-radius: 50px;
-  background: var(--ux-grad);
+  /* background: var(--ux-grad); */
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
   transform-style: preserve-3d;
   transition:
     transform 0.55s cubic-bezier(0.22, 1, 0.36, 1),
@@ -41,6 +40,18 @@ html {
   --ux-cta: #00c37b;
   --ux-orbit: rgba(0, 249, 203, 0.22);
   --ux-fill: #00894d;
+}
+
+.ux-parent--orange {
+  --ux-grad: linear-gradient(135deg, #ffb36b 0%, #fb6334 50%, #e24a1a 100%);
+
+  --ux-title: #fb6334;
+  --ux-body: rgba(251, 99, 52, 0.82);
+  --ux-cta: #ff7a45;
+
+  --ux-orbit: rgba(251, 99, 52, 0.22);
+
+  --ux-fill: #fb6334;
 }
 
 .ux-parent--void .ux-card {
@@ -72,13 +83,16 @@ html {
   border-radius: 55px;
   border-top-right-radius: 100%;
   background: linear-gradient(
-    0deg,
-    rgba(255, 255, 255, 0.38) 0%,
-    rgba(255, 255, 255, 0.82) 100%
+    to bottom,
+    rgba(0, 0, 0, 0.35),
+    rgba(0, 0, 0, 0.55),
+    rgba(0, 0, 0, 0.75),
+    rgba(0, 0, 0, 0.95)
   );
+
   transform: translate3d(0, 0, 25px);
-  border-inline-start: 1px solid var(--glass-edge);
-  border-bottom: 1px solid rgba(255, 255, 255, 0.75);
+  border-inline-start: 1px solid #000;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.75);
   transition: all 0.5s ease-in-out;
   pointer-events: none;
 }
@@ -96,7 +110,7 @@ html {
 .ux-logo {
   position: absolute;
   inset-inline-end: 0;
-  top: 0;
+  top: 20px;
   transform-style: preserve-3d;
   pointer-events: none;
   z-index: 2;
@@ -199,7 +213,7 @@ html {
 
 /* Bottom bar */
 .ux-bottom {
-  padding: 10px 12px;
+  padding: 15px 12px;
   transform-style: preserve-3d;
   position: absolute;
   bottom: 20px;
@@ -212,14 +226,14 @@ html {
   z-index: 4;
 }
 
-.ux-social {
+.ux-project {
   display: flex;
   gap: 10px;
   transform-style: preserve-3d;
 }
 
-.ux-social-btn {
-  width: 32px;
+.ux-project-btn {
+  width: 50px;
   aspect-ratio: 1;
   padding: 6px;
   background: #fff;
@@ -235,36 +249,35 @@ html {
     background 0.2s;
 }
 
-.ux-social-btn:nth-child(1) {
+.ux-project-btn:nth-child(1) {
   transition-delay: 0.05s;
 }
-.ux-social-btn:nth-child(2) {
+.ux-project-btn:nth-child(2) {
   transition-delay: 0.1s;
 }
-.ux-social-btn:nth-child(3) {
+.ux-project-btn:nth-child(3) {
   transition-delay: 0.15s;
 }
 
-.ux-social-btn svg {
-  width: 15px;
-  height: 15px;
+.ux-project-btn svg {
+  font-size: 25px;
   fill: var(--ux-fill);
 }
 
-.ux-social-btn:hover {
+.ux-project-btn:hover {
   background: #0f172a;
 }
-.ux-social-btn:hover svg {
+.ux-project-btn:hover svg {
   fill: #fff;
 }
-.ux-social-btn:active {
+.ux-project-btn:active {
   background: #ffea00;
 }
-.ux-social-btn:active svg {
+.ux-project-btn:active svg {
   fill: #0f172a;
 }
 
-.ux-parent:hover .ux-social-btn {
+.ux-parent:hover .ux-project-btn {
   transform: translate3d(0, 0, 50px);
   box-shadow: rgba(5, 71, 17, 0.25) -5px 20px 12px 0;
 }
@@ -285,7 +298,7 @@ html {
 .ux-more-btn {
   background: none;
   border: none;
-  color: var(--ux-cta);
+  color: var(--ux-title);
   font-weight: 800;
   font-size: 0.75rem;
   font-family: inherit;
@@ -347,7 +360,7 @@ html {
   .ux-parent:hover .ux-circle:nth-child(5) {
     transform: inherit;
   }
-  .ux-parent:hover .ux-social-btn {
+  .ux-parent:hover .ux-project-btn {
     transform: none;
   }
 }
