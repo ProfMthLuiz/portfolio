@@ -12,6 +12,12 @@ import "./css/Breakpoints.css";
 import { FaArrowRightLong } from "react-icons/fa6";
 import { MdQuestionAnswer } from "react-icons/md";
 
+import { useGSAP } from "@gsap/react";
+import gsap from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+
+gsap.registerPlugin(useGSAP, ScrollTrigger);
+
 import { ImSpinner6 } from "react-icons/im";
 
 import { FaUser, FaPencilAlt } from "react-icons/fa";
@@ -34,7 +40,6 @@ import { TypeAnimation } from "react-type-animation";
 
 import avatar from "./assets/avatar.png";
 
-import gsap from "gsap";
 import { FluidCursor } from "./FluidCursor";
 
 import emailjs from "@emailjs/browser";
@@ -118,6 +123,47 @@ function App() {
       if (timelineRef.current) timelineRef.current.kill();
     };
   }, []);
+
+  // gsap
+  useGSAP(() => {
+    const tl = gsap.timeline();
+
+    tl.from(".hero__subtitle", {
+      opacity: 0,
+      y: 40,
+      duration: 0.6,
+    })
+      .from(
+        ".hero__title",
+        {
+          opacity: 0,
+          x: -50,
+          duration: 0.8,
+        },
+        "-=.3",
+      )
+      .from(".hero__description", {
+        opacity: 0,
+        y: 20,
+      })
+      .from(".hero__circle", {
+        opacity: 0,
+        scale: 0.8,
+      });
+  });
+
+  gsap.from(".about__container", {
+    opacity: 0,
+    y: 100,
+    scale: 0.95,
+    ease: "none",
+    scrollTrigger: {
+      trigger: ".about",
+      start: "top 80%",
+      end: "top 30%",
+      scrub: 1, // acompanha o scroll suavemente
+    },
+  });
 
   const handleMouseEnter = () => {
     if (timelineRef.current) timelineRef.current.pause();
