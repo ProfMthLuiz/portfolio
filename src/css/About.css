@@ -29,6 +29,7 @@
   width: 210px;
   height: 250px;
   border-radius: 1.5rem;
+  opacity: 0;
 }
 
 .about__box-1 {
@@ -66,6 +67,7 @@
     var(--accent-dark) 70%,
     transparent 100%
   );
+  opacity: 0;
 }
 
 .about__images .blob-big {
@@ -73,6 +75,10 @@
   left: 0;
   right: 0;
   justify-self: center;
+}
+
+.about__data {
+  opacity: 0;
 }
 
 .about__data .section__title {
@@ -122,11 +128,13 @@
 .social-link-linkedin {
   top: 0;
   left: -75px;
+  opacity: 0;
 }
 
 .social-link-github {
   top: 75px;
   left: -75px;
+  opacity: 0;
 }
 
 .social-link-github,
@@ -142,7 +150,9 @@
   color: #000;
   text-decoration: none;
   clip-path: polygon(25% 0%, 75% 0%, 100% 50%, 75% 100%, 25% 100%, 0% 50%);
-  transition: all 0.4s ease;
+  transition:
+    transform 0.4s ease,
+    background-color 0.4s ease;
 }
 
 .social-link-github:hover,

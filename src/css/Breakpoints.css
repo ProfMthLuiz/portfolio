@@ -140,7 +140,7 @@
     grid-template-columns: repeat(2, 1fr);
     align-items: center;
     column-gap: 5.5rem;
-    padding-top: 3rem;
+    padding-top: 5rem;
   }
 
   .about__box-1,

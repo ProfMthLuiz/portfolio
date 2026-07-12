@@ -60,14 +60,17 @@ const sectionsList: SectionData[] = [
 ];
 
 function App() {
-  const formRef = useRef<HTMLFormElement>(null);
   const [loading, setLoading] = useState(false);
   const [message, setMessage] = useState(false);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [activeSection, setActiveSection] = useState<SectionId>("hero");
   const navMenuRef = useRef<HTMLDivElement>(null);
+  const formRef = useRef<HTMLFormElement>(null);
   const timelineRef = useRef<gsap.core.Tween | null>(null);
   const trackRef = useRef<HTMLDivElement>(null);
+
+  // animation
+  const aboutRef = useRef<HTMLDivElement>(null);
 
   const text = "EXPLORE - MORE - LET'S -";
   const letters = text.split("");
@@ -152,18 +155,92 @@ function App() {
       });
   });
 
-  gsap.from(".about__container", {
-    opacity: 0,
-    y: 100,
-    scale: 0.95,
-    ease: "none",
-    scrollTrigger: {
-      trigger: ".about",
-      start: "top 80%",
-      end: "top 30%",
-      scrub: 1, // acompanha o scroll suavemente
-    },
-  });
+  useEffect(() => {
+    let mm = gsap.matchMedia();
+
+    mm.add(
+      {
+        // 1. Mobile (350px até 767px)
+        isMobile: "(min-width: 350px) and (max-width: 767px)",
+
+        // 2. Tablet / Pequenos Desktops (768px até 1149px)
+        isTablet: "(min-width: 768px) and (max-width: 1149px)",
+
+        // 3. Desktop Padrão (1150px)
+        isDesktop: "(min-width: 1150px) ",
+      },
+      (context) => {
+        // Desestruturando as condições para usar abaixo
+        let { isMobile, isTablet, isDesktop } = context.conditions;
+
+        // ==========================================
+        // 📱 ANIMAÇÃO MOBILE (350px - 767px)
+        // ==========================================
+        if (isMobile) {
+        }
+
+        // ==========================================
+        // 📐 ANIMAÇÃO TABLET (768px - 1149px)
+        // ==========================================
+        if (isTablet) {
+        }
+
+        // ==========================================
+        // 💻 ANIMAÇÃO DESKTOP (1150px - 1519px)
+        // ==========================================
+        if (isDesktop) {
+          const tl = gsap.timeline({
+            scrollTrigger: {
+              trigger: aboutRef.current,
+              start: "top top",
+              end: "+=2000",
+              scrub: 1,
+              pin: true,
+              anticipatePin: 1,
+            },
+          });
+
+          // Passo 1: Aparece o Card 2 e o blob pequeno
+          tl.to([".about__box-1", ".blob-small"], {
+            opacity: 1,
+            x: -20,
+            y: -10,
+            rotate: -5,
+            duration: 1,
+          })
+
+            // Passo 2: Aparece o Card 1 (o do meio)
+            .to(
+              ".about__box-2",
+              { opacity: 1, x: -10, y: -5, rotate: -2, duration: 1 },
+              "-=0.5",
+            )
+
+            // Passo 3: Aparece a Imagem Principal, Dados e o Card 3 juntos
+            .to([".about__box-3", ".about__data", ".about__img"], {
+              opacity: 1,
+              y: 0,
+              duration: 1.5,
+              stagger: 0.2,
+            })
+
+            // Passo 4: Links Sociais entram na tela (Corrigido para x: 75)
+            .to(
+              [".social-link-linkedin", ".social-link-github"],
+              {
+                opacity: 1,
+                duration: 1.5,
+                stagger: 0.2,
+              },
+              "-=0.5",
+            );
+        }
+      },
+    );
+
+    // Limpeza ao desmontar o componente
+    return () => mm.revert();
+  }, []);
 
   const handleMouseEnter = () => {
     if (timelineRef.current) timelineRef.current.pause();
@@ -309,7 +386,7 @@ function App() {
         </div>
       </section>
 
-      <section className="about " id="about">
+      <section className="about " id="about" ref={aboutRef}>
         <div className="about__container container grid">
           <div className="about__images">
             <div className="about__box-1"></div>
