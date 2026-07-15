@@ -300,13 +300,13 @@ function App() {
     return () => ctx.revert();
   }, []);
 
-  // Animação Projects Section
+  // Animação Contact Section
   useGSAP(() => {
     const ctx = gsap.context(() => {
       const tl = gsap.timeline({
         scrollTrigger: {
           trigger: contactRef.current,
-          start: "top 80%",
+          start: "top 60%",
           end: "+=500",
           scrub: 1,
           anticipatePin: 1,
@@ -442,145 +442,38 @@ function App() {
   }, []);
 
   // Animação Footer Section
-  useGSAP(() => {
-    const ctx = gsap.context(() => {
+  useGSAP(
+    () => {
+      // Criamos uma timeline com gatilho automático (toggleActions) em vez de scrub
       const tl = gsap.timeline({
         scrollTrigger: {
-          trigger: contactRef.current,
-          start: "top 80%",
-          end: "+=500",
-          scrub: 1,
-          anticipatePin: 1,
+          trigger: footerRef.current,
+          start: "top 95%", // Dispara quando o topo do rodapé estiver quase aparecendo
+          toggleActions: "play none none reverse", // Dá play completo ao descer e reverte ao subir tudo
         },
       });
 
+      // Animamos os 3 elementos em sequência rápida usando um tempo fixo automático
       tl.fromTo(
-        ".contact__status",
-        {
-          opacity: 0,
-          x: -150,
-        },
-        {
-          opacity: 1,
-          x: 0,
-          duration: 1,
-          ease: "power2.out",
-        },
-      );
-      tl.fromTo(
-        ".contact__title",
-        {
-          opacity: 0,
-          x: -150, // Começa deslocado 150px para a esquerda
-        },
-        {
-          opacity: 1,
-          x: 0, // Vai para a posição original dele de forma ultra fluida
-          duration: 2,
-          ease: "power2.out",
-        },
-      );
-      tl.fromTo(
-        ".contact__description",
-        {
-          opacity: 0,
-          x: -150, // Começa deslocado 150px para a esquerda
-        },
-        {
-          opacity: 1,
-          x: 0, // Vai para a posição original dele de forma ultra fluida
-          duration: 1,
-          ease: "power2.out",
-        },
-      );
-
-      tl.fromTo(
-        ".contact__detail:nth-child(1)",
-        {
-          opacity: 0,
-          x: -150, // Começa deslocado 150px para a esquerda
-        },
-        {
-          opacity: 1,
-          x: 0, // Vai para a posição original dele de forma ultra fluida
-          duration: 1,
-          ease: "power2.out",
-        },
-      );
-
-      tl.fromTo(
-        ".contact__detail:nth-child(2)",
-        {
-          opacity: 0,
-          x: -150, // Começa deslocado 150px para a esquerda
-        },
-        {
-          opacity: 1,
-          x: 0, // Vai para a posição original dele de forma ultra fluida
-          duration: 1,
-          ease: "power2.out",
-        },
-      );
-
-      tl.fromTo(
-        ".contact__detail:nth-child(3)",
-        {
-          opacity: 0,
-          x: -150, // Começa deslocado 150px para a esquerda
-        },
-        {
-          opacity: 1,
-          x: 0, // Vai para a posição original dele de forma ultra fluida
-          duration: 1,
-          ease: "power2.out",
-        },
-      );
-
-      tl.fromTo(
-        ".contact__form",
-        {
-          opacity: 0,
-          x: 150, // Começa deslocado 150px para a esquerda
-        },
-        {
-          opacity: 1,
-          x: 0, // Vai para a posição original dele de forma ultra fluida
-          duration: 3,
-          ease: "power2.out",
-        },
-      );
-
-      tl.fromTo(
-        ".contact__stack-title",
-        {
-          opacity: 0,
-          x: -150, // Começa deslocado 150px para a esquerda
-        },
-        {
-          opacity: 1,
-          x: 0, // Vai para a posição original dele de forma ultra fluida
-          duration: 1,
-          ease: "power2.out",
-        },
-      );
-
-      tl.fromTo(
-        ".contact__badges",
-        {
-          opacity: 0,
-          x: -150, // Começa deslocado 150px para a esquerda
-        },
-        {
-          opacity: 1,
-          x: 0, // Vai para a posição original dele de forma ultra fluida
-          duration: 1,
-          ease: "power2.out",
-        },
-      );
-    }, contactRef);
-
-    return () => ctx.revert();
-  }, []);
+        ".footer-author-link",
+        { opacity: 0, x: -100 },
+        { opacity: 1, x: 0, duration: 0.8, ease: "power2.out" },
+      )
+        .fromTo(
+          ".footer-text-copyright",
+          { opacity: 0, y: 50 },
+          { opacity: 1, y: 0, duration: 0.8, ease: "power2.out" },
+          "-=0.5", // Começa 0.5 segundos antes da anterior terminar para ficar fluido
+        )
+        .fromTo(
+          ".footer-social",
+          { opacity: 0, x: 100 },
+          { opacity: 1, x: 0, duration: 0.8, ease: "power2.out" },
+          "-=0.5", // Também sobrepõe para criar um efeito de cascata lindo
+        );
+    },
+    { scope: footerRef },
+  ); // O hook já limpa e escopa tudo sozinho aqui!
 
   const handleMouseEnter = () => {
     if (timelineRef.current) timelineRef.current.pause();
@@ -991,7 +884,7 @@ function App() {
         <div className="dot-matrix"></div>
       </section>
 
-      <footer className="main-footer">
+      <footer className="main-footer" ref={footerRef}>
         <div className="footer-container">
           <a
             href="https://www.linkedin.com/in/matheus-luiz99/"

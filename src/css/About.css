@@ -6,9 +6,8 @@
 
 .about__container {
   display: grid;
-  row-gap: 3rem;
   overflow-y: clip;
-  padding: 100px 0 0 0;
+  padding: 135px 0 0 0;
 }
 
 .about__images .blob-small {

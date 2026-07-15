@@ -136,11 +136,10 @@
   }
 
   .about__container {
-    height: 100vh;
+    min-height: 100vh;
     grid-template-columns: repeat(2, 1fr);
     align-items: center;
     column-gap: 5.5rem;
-    padding-top: 5rem;
   }
 
   .about__box-1,
