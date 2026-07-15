@@ -16,7 +16,7 @@ import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 
-gsap.registerPlugin(useGSAP, ScrollTrigger);
+gsap.registerPlugin(ScrollTrigger);
 
 import { ImSpinner6 } from "react-icons/im";
 
@@ -71,6 +71,10 @@ function App() {
 
   // animation
   const aboutRef = useRef<HTMLDivElement>(null);
+  const stackRef = useRef<HTMLDivElement>(null);
+  const projectsRef = useRef<HTMLDivElement>(null);
+  const contactRef = useRef<HTMLDivElement>(null);
+  const footerRef = useRef<HTMLDivElement>(null);
 
   const text = "EXPLORE - MORE - LET'S -";
   const letters = text.split("");
@@ -127,7 +131,7 @@ function App() {
     };
   }, []);
 
-  // gsap
+  // Animação Hero Section
   useGSAP(() => {
     const tl = gsap.timeline();
 
@@ -155,91 +159,286 @@ function App() {
       });
   });
 
-  useEffect(() => {
-    let mm = gsap.matchMedia();
+  // Animação About Section
+  useGSAP(() => {
+    const ctx = gsap.context(() => {
+      const tl = gsap.timeline({
+        scrollTrigger: {
+          trigger: aboutRef.current,
+          start: "top top",
+          end: "+=2000",
+          scrub: 1,
+          pin: true,
+          anticipatePin: 1,
+        },
+      });
 
-    mm.add(
-      {
-        // 1. Mobile (350px até 767px)
-        isMobile: "(min-width: 350px) and (max-width: 767px)",
+      tl.to([".about__box-1", ".blob-small"], {
+        opacity: 1,
+        x: -20,
+        y: -10,
+        rotate: -5,
+        duration: 1,
+      })
 
-        // 2. Tablet / Pequenos Desktops (768px até 1149px)
-        isTablet: "(min-width: 768px) and (max-width: 1149px)",
+        .to(
+          ".about__box-2",
+          { opacity: 1, x: -10, y: -5, rotate: -2, duration: 1 },
+          "-=0.5",
+        )
 
-        // 3. Desktop Padrão (1150px)
-        isDesktop: "(min-width: 1150px) ",
-      },
-      (context) => {
-        // Desestruturando as condições para usar abaixo
-        let { isMobile, isTablet, isDesktop } = context.conditions;
+        .to([".about__box-3", ".about__img"], {
+          opacity: 1,
+          y: 0,
+          right: "-1.25rem",
+          duration: 1.5,
+          stagger: 0.2,
+        })
 
-        // ==========================================
-        // 📱 ANIMAÇÃO MOBILE (350px - 767px)
-        // ==========================================
-        if (isMobile) {
-        }
+        .to([".about__data"], {
+          opacity: 1,
+          left: 0,
+          duration: 1.5,
+          stagger: 0.2,
+        })
 
-        // ==========================================
-        // 📐 ANIMAÇÃO TABLET (768px - 1149px)
-        // ==========================================
-        if (isTablet) {
-        }
-
-        // ==========================================
-        // 💻 ANIMAÇÃO DESKTOP (1150px - 1519px)
-        // ==========================================
-        if (isDesktop) {
-          const tl = gsap.timeline({
-            scrollTrigger: {
-              trigger: aboutRef.current,
-              start: "top top",
-              end: "+=2000",
-              scrub: 1,
-              pin: true,
-              anticipatePin: 1,
-            },
-          });
-
-          // Passo 1: Aparece o Card 2 e o blob pequeno
-          tl.to([".about__box-1", ".blob-small"], {
+        .to(
+          [".social-link-linkedin", ".social-link-github"],
+          {
             opacity: 1,
-            x: -20,
-            y: -10,
-            rotate: -5,
-            duration: 1,
-          })
+            duration: 1.5,
+            stagger: 0.2,
+          },
+          "-=0.5",
+        );
+    }, aboutRef);
 
-            // Passo 2: Aparece o Card 1 (o do meio)
-            .to(
-              ".about__box-2",
-              { opacity: 1, x: -10, y: -5, rotate: -2, duration: 1 },
-              "-=0.5",
-            )
+    return () => ctx.revert();
+  }, []);
 
-            // Passo 3: Aparece a Imagem Principal, Dados e o Card 3 juntos
-            .to([".about__box-3", ".about__data", ".about__img"], {
-              opacity: 1,
-              y: 0,
-              duration: 1.5,
-              stagger: 0.2,
-            })
+  // Animação Stack Section
+  useGSAP(
+    () => {
+      // Garantimos que o elemento existe antes de animar
+      if (!stackRef.current) return;
 
-            // Passo 4: Links Sociais entram na tela (Corrigido para x: 75)
-            .to(
-              [".social-link-linkedin", ".social-link-github"],
-              {
-                opacity: 1,
-                duration: 1.5,
-                stagger: 0.2,
-              },
-              "-=0.5",
-            );
-        }
-      },
-    );
+      gsap.fromTo(
+        stackRef.current, // Passamos a referência direta ao invés da classe string
+        {
+          opacity: 0,
+          y: 50, // Começa um pouco abaixo para dar um efeito sutil de subida
+        },
+        {
+          opacity: 1,
+          y: 0,
+          duration: 1,
+          ease: "power2.out",
+          scrollTrigger: {
+            trigger: stackRef.current,
+            start: "top 100%",
+            toggleActions: "play none none reverse",
+          },
+        },
+      );
+    },
+    // Removemos o escopo aqui para evitar que o GSAP ignore a referência principal
+  );
 
-    // Limpeza ao desmontar o componente
-    return () => mm.revert();
+  // Animação Projects Section
+  useGSAP(() => {
+    const ctx = gsap.context(() => {
+      const tl = gsap.timeline({
+        scrollTrigger: {
+          trigger: projectsRef.current,
+          start: "top 80%",
+          end: "+=500",
+          scrub: 1,
+          anticipatePin: 1,
+        },
+      });
+
+      tl.fromTo(
+        ".section__title",
+        {
+          opacity: 0,
+          x: -150, // Começa deslocado 150px para a esquerda
+        },
+        {
+          opacity: 1,
+          x: 0, // Vai para a posição original dele de forma ultra fluida
+          duration: 1,
+          ease: "power2.out",
+        },
+      );
+      tl.fromTo(
+        ".slider-section",
+        {
+          opacity: 0,
+          y: 150, // Começa deslocado 150px para a esquerda
+        },
+        {
+          opacity: 1,
+          y: 0, // Vai para a posição original dele de forma ultra fluida
+          duration: 2,
+          ease: "power2.out",
+        },
+      );
+
+      tl.fromTo(
+        ".swiper-pagination-bullets",
+        {
+          opacity: 0,
+        },
+        {
+          opacity: 1,
+          duration: 1.5,
+          ease: "power2.out",
+        },
+      );
+    }, projectsRef);
+
+    return () => ctx.revert();
+  }, []);
+
+  // Animação Projects Section
+  useGSAP(() => {
+    const ctx = gsap.context(() => {
+      const tl = gsap.timeline({
+        scrollTrigger: {
+          trigger: contactRef.current,
+          start: "top 80%",
+          end: "+=500",
+          scrub: 1,
+          anticipatePin: 1,
+        },
+      });
+
+      tl.fromTo(
+        ".contact__status",
+        {
+          opacity: 0,
+          x: -150,
+        },
+        {
+          opacity: 1,
+          x: 0,
+          duration: 1,
+          ease: "power2.out",
+        },
+      );
+      tl.fromTo(
+        ".contact__title",
+        {
+          opacity: 0,
+          x: -150, // Começa deslocado 150px para a esquerda
+        },
+        {
+          opacity: 1,
+          x: 0, // Vai para a posição original dele de forma ultra fluida
+          duration: 2,
+          ease: "power2.out",
+        },
+      );
+      tl.fromTo(
+        ".contact__description",
+        {
+          opacity: 0,
+          x: -150, // Começa deslocado 150px para a esquerda
+        },
+        {
+          opacity: 1,
+          x: 0, // Vai para a posição original dele de forma ultra fluida
+          duration: 1,
+          ease: "power2.out",
+        },
+      );
+
+      tl.fromTo(
+        ".contact__detail:nth-child(1)",
+        {
+          opacity: 0,
+          x: -150, // Começa deslocado 150px para a esquerda
+        },
+        {
+          opacity: 1,
+          x: 0, // Vai para a posição original dele de forma ultra fluida
+          duration: 1,
+          ease: "power2.out",
+        },
+      );
+
+      tl.fromTo(
+        ".contact__detail:nth-child(2)",
+        {
+          opacity: 0,
+          x: -150, // Começa deslocado 150px para a esquerda
+        },
+        {
+          opacity: 1,
+          x: 0, // Vai para a posição original dele de forma ultra fluida
+          duration: 1,
+          ease: "power2.out",
+        },
+      );
+
+      tl.fromTo(
+        ".contact__detail:nth-child(3)",
+        {
+          opacity: 0,
+          x: -150, // Começa deslocado 150px para a esquerda
+        },
+        {
+          opacity: 1,
+          x: 0, // Vai para a posição original dele de forma ultra fluida
+          duration: 1,
+          ease: "power2.out",
+        },
+      );
+
+      tl.fromTo(
+        ".contact__form",
+        {
+          opacity: 0,
+          x: 150, // Começa deslocado 150px para a esquerda
+        },
+        {
+          opacity: 1,
+          x: 0, // Vai para a posição original dele de forma ultra fluida
+          duration: 3,
+          ease: "power2.out",
+        },
+      );
+
+      tl.fromTo(
+        ".contact__stack-title",
+        {
+          opacity: 0,
+          x: -150, // Começa deslocado 150px para a esquerda
+        },
+        {
+          opacity: 1,
+          x: 0, // Vai para a posição original dele de forma ultra fluida
+          duration: 1,
+          ease: "power2.out",
+        },
+      );
+
+      tl.fromTo(
+        ".contact__badges",
+        {
+          opacity: 0,
+          x: -150, // Começa deslocado 150px para a esquerda
+        },
+        {
+          opacity: 1,
+          x: 0, // Vai para a posição original dele de forma ultra fluida
+          duration: 1,
+          ease: "power2.out",
+        },
+      );
+    }, contactRef);
+
+    return () => ctx.revert();
   }, []);
 
   const handleMouseEnter = () => {
@@ -441,7 +640,7 @@ function App() {
         </div>
       </section>
 
-      <section className="stack " id="stack">
+      <section className="stack " id="stack" ref={stackRef}>
         <div className="slider">
           <div
             className="track"
@@ -466,12 +665,12 @@ function App() {
         </div>
       </section>
 
-      <section className="projects" id="projects">
+      <section className="projects" id="projects" ref={projectsRef}>
         <h2 className="section__title">Projetos</h2>
         <ProjectSlider />
       </section>
 
-      <section className="contact" id="contact">
+      <section className="contact" id="contact" ref={contactRef}>
         <div className="contact__content">
           <div className="contact__info">
             <div className="contact__status">
