@@ -441,6 +441,147 @@ function App() {
     return () => ctx.revert();
   }, []);
 
+  // Animação Footer Section
+  useGSAP(() => {
+    const ctx = gsap.context(() => {
+      const tl = gsap.timeline({
+        scrollTrigger: {
+          trigger: contactRef.current,
+          start: "top 80%",
+          end: "+=500",
+          scrub: 1,
+          anticipatePin: 1,
+        },
+      });
+
+      tl.fromTo(
+        ".contact__status",
+        {
+          opacity: 0,
+          x: -150,
+        },
+        {
+          opacity: 1,
+          x: 0,
+          duration: 1,
+          ease: "power2.out",
+        },
+      );
+      tl.fromTo(
+        ".contact__title",
+        {
+          opacity: 0,
+          x: -150, // Começa deslocado 150px para a esquerda
+        },
+        {
+          opacity: 1,
+          x: 0, // Vai para a posição original dele de forma ultra fluida
+          duration: 2,
+          ease: "power2.out",
+        },
+      );
+      tl.fromTo(
+        ".contact__description",
+        {
+          opacity: 0,
+          x: -150, // Começa deslocado 150px para a esquerda
+        },
+        {
+          opacity: 1,
+          x: 0, // Vai para a posição original dele de forma ultra fluida
+          duration: 1,
+          ease: "power2.out",
+        },
+      );
+
+      tl.fromTo(
+        ".contact__detail:nth-child(1)",
+        {
+          opacity: 0,
+          x: -150, // Começa deslocado 150px para a esquerda
+        },
+        {
+          opacity: 1,
+          x: 0, // Vai para a posição original dele de forma ultra fluida
+          duration: 1,
+          ease: "power2.out",
+        },
+      );
+
+      tl.fromTo(
+        ".contact__detail:nth-child(2)",
+        {
+          opacity: 0,
+          x: -150, // Começa deslocado 150px para a esquerda
+        },
+        {
+          opacity: 1,
+          x: 0, // Vai para a posição original dele de forma ultra fluida
+          duration: 1,
+          ease: "power2.out",
+        },
+      );
+
+      tl.fromTo(
+        ".contact__detail:nth-child(3)",
+        {
+          opacity: 0,
+          x: -150, // Começa deslocado 150px para a esquerda
+        },
+        {
+          opacity: 1,
+          x: 0, // Vai para a posição original dele de forma ultra fluida
+          duration: 1,
+          ease: "power2.out",
+        },
+      );
+
+      tl.fromTo(
+        ".contact__form",
+        {
+          opacity: 0,
+          x: 150, // Começa deslocado 150px para a esquerda
+        },
+        {
+          opacity: 1,
+          x: 0, // Vai para a posição original dele de forma ultra fluida
+          duration: 3,
+          ease: "power2.out",
+        },
+      );
+
+      tl.fromTo(
+        ".contact__stack-title",
+        {
+          opacity: 0,
+          x: -150, // Começa deslocado 150px para a esquerda
+        },
+        {
+          opacity: 1,
+          x: 0, // Vai para a posição original dele de forma ultra fluida
+          duration: 1,
+          ease: "power2.out",
+        },
+      );
+
+      tl.fromTo(
+        ".contact__badges",
+        {
+          opacity: 0,
+          x: -150, // Começa deslocado 150px para a esquerda
+        },
+        {
+          opacity: 1,
+          x: 0, // Vai para a posição original dele de forma ultra fluida
+          duration: 1,
+          ease: "power2.out",
+        },
+      );
+    }, contactRef);
+
+    return () => ctx.revert();
+  }, []);
+
   const handleMouseEnter = () => {
     if (timelineRef.current) timelineRef.current.pause();
   };
