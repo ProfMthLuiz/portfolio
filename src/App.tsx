@@ -1,4 +1,4 @@
-import "./App.css";
+import "./styles/App.css";
 import "./css/Header.css";
 import "./css/Skills.css";
 import "./css/Hero.css";
@@ -28,15 +28,11 @@ import { useEffect, useRef, useState } from "react";
 
 import { LuMessageSquareText } from "react-icons/lu";
 
-import { IoMdClose } from "react-icons/io";
 import { FaCode } from "react-icons/fa";
 import { FaGithub, FaLinkedin, FaLocationDot } from "react-icons/fa6";
 import { MdMenuOpen, MdEmail } from "react-icons/md";
-import { TiArrowDownThick } from "react-icons/ti";
 import { HiBadgeCheck } from "react-icons/hi";
 import { GiPadlock } from "react-icons/gi";
-
-import { TypeAnimation } from "react-type-animation";
 
 import avatar from "./assets/images/avatar.png";
 
@@ -44,27 +40,14 @@ import { FluidCursor } from "./components/FluidCursor/FluidCursor";
 
 import emailjs from "@emailjs/browser";
 import ProjectSlider from "./components/ProjectSlider/ProjectSlider";
-
-type SectionId = "hero" | "about" | "stack" | "projects" | "contact";
-
-interface SectionData {
-  id: SectionId;
-  label: string;
-}
-
-const sectionsList: SectionData[] = [
-  { id: "hero", label: "Home" },
-  { id: "about", label: "About" },
-  { id: "projects", label: "Projects" },
-  { id: "contact", label: "Contact" },
-];
+import Header from "./components/Header/Header";
+import Hero from "./sections/Hero/Hero";
+import Footer from "./components/Footer/Footer";
 
 function App() {
   const [loading, setLoading] = useState(false);
   const [message, setMessage] = useState(false);
-  const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const [activeSection, setActiveSection] = useState<SectionId>("hero");
-  const navMenuRef = useRef<HTMLDivElement>(null);
+
   const formRef = useRef<HTMLFormElement>(null);
   const timelineRef = useRef<gsap.core.Tween | null>(null);
   const trackRef = useRef<HTMLDivElement>(null);
@@ -75,37 +58,6 @@ function App() {
   const projectsRef = useRef<HTMLDivElement>(null);
   const contactRef = useRef<HTMLDivElement>(null);
   const footerRef = useRef<HTMLDivElement>(null);
-
-  const text = "EXPLORE - MORE - LET'S -";
-  const letters = text.split("");
-
-  useEffect(() => {
-    const handleScroll = () => {
-      const scrollY = window.scrollY;
-
-      sectionsList.forEach(({ id }) => {
-        const section = document.getElementById(id);
-
-        if (section) {
-          const top = section.offsetTop - 50; // Distância do topo (offset de 50px)
-          const height = section.offsetHeight; // Altura da seção
-
-          // Verifica se o scroll atual está dentro dos limites da seção
-          if (scrollY > top && scrollY <= top + height) {
-            setActiveSection(id);
-          }
-        }
-      });
-    };
-
-    // Adiciona o ouvinte de evento ao montar o componente
-    window.addEventListener("scroll", handleScroll);
-
-    // CRUCIAL: Remove o ouvinte ao desmontar para evitar vazamento de memória
-    return () => {
-      window.removeEventListener("scroll", handleScroll);
-    };
-  }, []);
 
   useEffect(() => {
     const track = trackRef.current;
@@ -483,18 +435,6 @@ function App() {
     if (timelineRef.current) timelineRef.current.play();
   };
 
-  const toggleMenu = () => {
-    if (!navMenuRef.current) return;
-
-    gsap.to(navMenuRef.current, {
-      right: isMenuOpen ? "-120%" : "0%",
-      duration: 0.5,
-      ease: "power3.inOut",
-    });
-
-    setIsMenuOpen((prev) => !prev);
-  };
-
   const sendEmail = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     setLoading(true);
@@ -527,97 +467,9 @@ function App() {
   return (
     <div className="App">
       <FluidCursor />
-      <header className="header">
-        <nav className="nav container">
-          <a href="/" className="nav__logo">
-            Matheus Luiz.
-          </a>
 
-          <div className="nav__menu" id="nav-menu" ref={navMenuRef}>
-            <ul className="nav__list">
-              {sectionsList.map(({ id, label }) => (
-                <li className="nav__item" key={id}>
-                  <a
-                    href={`#${id}`}
-                    className={`nav__link ${activeSection === id ? "active-link" : ""}`}
-                  >
-                    {label}
-                  </a>
-                </li>
-              ))}
-            </ul>
-
-            {/* Close */}
-            <button
-              className="nav__close"
-              id="nav-close"
-              aria-label="Close menu"
-              onClick={toggleMenu}
-            >
-              <IoMdClose />
-            </button>
-          </div>
-
-          {/* Toggle */}
-          <button
-            className="nav__toggle"
-            id="nav-toggle"
-            aria-label="Togglew menu"
-            onClick={toggleMenu}
-          >
-            <MdMenuOpen />
-          </button>
-        </nav>
-      </header>
-
-      <section className="hero " id="hero">
-        <div className="hero__container container grid">
-          <div className="hero__data">
-            <h3 className="hero__subtitle">Olá, eu sou o Matheus</h3>
-            <h1 className="hero__title">
-              Desenvolvedor Full Stack & <br />
-              <TypeAnimation
-                sequence={[
-                  "Criando experiências digitais.",
-                  2000,
-                  "Transformando ideias em soluções.",
-                  2000,
-                  "Construindo aplicações modernas.",
-                  2000,
-                  "Sempre aprendendo e evoluindo.",
-                  2000,
-                ]}
-                wrapper="span"
-                cursor
-                repeat={Infinity}
-              />
-            </h1>
-            <p className="hero__description">
-              Transformo ideias em aplicações web modernas, responsivas e
-              intuitivas.
-            </p>
-          </div>
-
-          <div className="hero__circle">
-            <div className="hero__text">
-              {letters.map((letter, index) => (
-                <span
-                  key={index}
-                  style={{
-                    transform: `rotate(${index * (360 / letters.length)}deg)`,
-                  }}
-                >
-                  {letter}
-                </span>
-              ))}
-            </div>
-
-            <a href="#technologies" className="hero__arrow">
-              <TiArrowDownThick />
-            </a>
-          </div>
-        </div>
-      </section>
+      <Header />
+      <Hero />
 
       <section className="about " id="about" ref={aboutRef}>
         <div className="about__container container grid">
@@ -884,51 +736,7 @@ function App() {
         <div className="dot-matrix"></div>
       </section>
 
-      <footer className="main-footer" ref={footerRef}>
-        <div className="footer-container">
-          <a
-            href="https://www.linkedin.com/in/matheus-luiz99/"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="footer-author-link"
-          >
-            <FaCode />
-            <span>Matheus Luiz</span>
-          </a>
-
-          <p className="footer-text-copyright">
-            © 2026 <b>Matheus Luiz.</b> Construindo experiências, uma linha de
-            código por vez.
-          </p>
-
-          <div className="footer-social">
-            <a
-              href="https://www.linkedin.com/in/matheus-luiz99/"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="footer-social-link"
-            >
-              <FaLinkedin />
-            </a>
-            <a
-              href="https://github.com/ProfMthLuiz"
-              className="footer-social-link"
-              title="GitHub"
-              target="_blank"
-            >
-              <FaGithub />
-            </a>
-            <a
-              href="mailto:mthluiz99@gmail.com"
-              className="footer-social-link"
-              title="E-mail"
-              target="_blank"
-            >
-              <MdEmail />
-            </a>
-          </div>
-        </div>
-      </footer>
+      <Footer />
     </div>
   );
 }
