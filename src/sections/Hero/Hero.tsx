@@ -1,13 +1,43 @@
 import "./Hero.css";
 
+import { useGSAP } from "@gsap/react";
+
 // Import Icons
 import { TiArrowDownThick } from "react-icons/ti";
 
 import { TypeAnimation } from "react-type-animation";
 
-export default function Hero() {
+export default function Hero({ gsap }) {
   const text = "EXPLORE - MORE - LET'S -";
   const letters = text.split("");
+
+  // Animação Hero Section
+  useGSAP(() => {
+    const tl = gsap.timeline();
+
+    tl.from(".hero__subtitle", {
+      opacity: 0,
+      y: 40,
+      duration: 0.6,
+    })
+      .from(
+        ".hero__title",
+        {
+          opacity: 0,
+          x: -50,
+          duration: 0.8,
+        },
+        "-=.3",
+      )
+      .from(".hero__description", {
+        opacity: 0,
+        y: 20,
+      })
+      .from(".hero__circle", {
+        opacity: 0,
+        scale: 0.8,
+      });
+  });
 
   return (
     <section className="hero " id="hero">
