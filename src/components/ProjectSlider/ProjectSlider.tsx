@@ -13,13 +13,13 @@ import "swiper/css/pagination";
 
 import "./ProjectSlider.css";
 
-import habitTracker from "../../assets/habit_tracker.png";
+import habitTracker from "../../assets/images/projects/habit_tracker.png";
 
 import { FaReact, FaLaravel, FaNodeJs } from "react-icons/fa6";
 
 import { SiTypescript } from "react-icons/si";
 
-import GlassCard from "../../GlassCard";
+import GlassCard from "../GlassCard/GlassCard";
 
 export default function ProjectSlider() {
   return (

@@ -1,4 +1,4 @@
-import "./css/Glass.css";
+import "./GlassCard.css";
 
 import gsap from "gsap";
 import { useRef, useLayoutEffect } from "react";

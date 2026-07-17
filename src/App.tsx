@@ -38,9 +38,9 @@ import { GiPadlock } from "react-icons/gi";
 
 import { TypeAnimation } from "react-type-animation";
 
-import avatar from "./assets/avatar.png";
+import avatar from "./assets/images/avatar.png";
 
-import { FluidCursor } from "./FluidCursor";
+import { FluidCursor } from "./components/FluidCursor/FluidCursor";
 
 import emailjs from "@emailjs/browser";
 import ProjectSlider from "./components/ProjectSlider/ProjectSlider";
