@@ -2,6 +2,7 @@ import "./Contact.css";
 
 import { useRef, useState } from "react";
 import { useGSAP } from "@gsap/react";
+import gsap from "gsap";
 
 // Import icons
 import { HiBadgeCheck } from "react-icons/hi";
@@ -18,7 +19,7 @@ import { GiPadlock } from "react-icons/gi";
 import emailjs from "@emailjs/browser";
 import { allSkills } from "../../../constants/skills";
 
-export default function Contact({ gsap }) {
+export default function Contact() {
   const [loading, setLoading] = useState(false);
   const [message, setMessage] = useState(false);
   const contactRef = useRef<HTMLDivElement>(null);

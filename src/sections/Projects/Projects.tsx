@@ -2,10 +2,11 @@ import "./Projects.css";
 
 import { useRef } from "react";
 import { useGSAP } from "@gsap/react";
+import gsap from "gsap";
 
 import ProjectSlider from "../../components/ProjectSlider/ProjectSlider";
 
-export default function Projects({ gsap }) {
+export default function Projects() {
   const projectsRef = useRef<HTMLDivElement>(null);
 
   // Animação Projects Section

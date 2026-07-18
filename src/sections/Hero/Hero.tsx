@@ -1,13 +1,14 @@
 import "./Hero.css";
 
 import { useGSAP } from "@gsap/react";
+import gsap from "gsap";
 
 // Import Icons
 import { TiArrowDownThick } from "react-icons/ti";
 
 import { TypeAnimation } from "react-type-animation";
 
-export default function Hero({ gsap }) {
+export default function Hero() {
   const text = "EXPLORE - MORE - LET'S -";
   const letters = text.split("");
 

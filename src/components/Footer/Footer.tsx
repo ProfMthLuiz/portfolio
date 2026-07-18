@@ -2,13 +2,14 @@ import "./Footer.css";
 
 import { useRef } from "react";
 import { useGSAP } from "@gsap/react";
+import gsap from "gsap";
 
 // Import Icons
 import { FaCode } from "react-icons/fa";
 import { FaGithub, FaLinkedin } from "react-icons/fa6";
 import { MdEmail } from "react-icons/md";
 
-export default function Footer({ gsap }) {
+export default function Footer() {
   const footerRef = useRef<HTMLDivElement>(null);
 
   // Animação Footer Section

@@ -2,10 +2,11 @@ import "./Stack.css";
 
 import { useRef } from "react";
 import { useGSAP } from "@gsap/react";
+import gsap from "gsap";
 
 import { skills } from "../../../constants/skills";
 
-export default function Stack({ gsap }) {
+export default function Stack() {
   const stackRef = useRef<HTMLDivElement>(null);
   const trackRef = useRef<HTMLDivElement>(null);
   const timelineRef = useRef<gsap.core.Tween | null>(null);

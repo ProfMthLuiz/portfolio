@@ -2,6 +2,7 @@ import "./About.css";
 
 import { useRef } from "react";
 import { useGSAP } from "@gsap/react";
+import gsap from "gsap";
 
 // Import Icons
 import { FaGithub, FaLinkedin } from "react-icons/fa6";
@@ -9,7 +10,7 @@ import { FaGithub, FaLinkedin } from "react-icons/fa6";
 // Import Image Avatar
 import avatar from "../../assets/images/avatar.png";
 
-export default function About({ gsap }) {
+export default function About() {
   const aboutRef = useRef<HTMLDivElement>(null);
 
   // Animação About Section

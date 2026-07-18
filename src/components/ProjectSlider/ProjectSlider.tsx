@@ -15,7 +15,7 @@ import "./ProjectSlider.css";
 
 import habitTracker from "../../assets/images/projects/habit_tracker.png";
 
-import { FaReact, FaLaravel, FaNodeJs } from "react-icons/fa6";
+import { FaReact, FaLaravel } from "react-icons/fa6";
 
 import { SiTypescript } from "react-icons/si";
 
@@ -68,19 +68,18 @@ export default function ProjectSlider() {
       >
         <SwiperSlide>
           <GlassCard
-            title="Frontend"
-            description="React • TypeScript • Next.js"
+            title="Habit Tracker"
+            description="Daily habit tracker"
             icons={[
               <FaReact key="react" />,
               <SiTypescript key="ts" />,
               <FaLaravel key="laravel" />,
             ]}
-            color="mint"
+            color="orange"
             href="https://github.com/ProfMthLuiz"
-            image="https://www.chromethemer.com/wallpapers/chromebook-wallpapers/images/960/db-super-chromebook-wallpaper.jpg"
+            image={habitTracker}
           />
         </SwiperSlide>
-
         <SwiperSlide>
           <GlassCard
             title="Habit Tracker"
@@ -95,61 +94,60 @@ export default function ProjectSlider() {
             image={habitTracker}
           />
         </SwiperSlide>
-
         <SwiperSlide>
           <GlassCard
-            title="Mobile"
-            description="React Native"
+            title="Habit Tracker"
+            description="Daily habit tracker"
             icons={[
               <FaReact key="react" />,
               <SiTypescript key="ts" />,
               <FaLaravel key="laravel" />,
             ]}
-            href="https://github.com/ProfMthLuiz"
             color="orange"
-            image="https://www.chromethemer.com/wallpapers/chromebook-wallpapers/images/960/db-super-chromebook-wallpaper.jpg"
+            href="https://github.com/ProfMthLuiz"
+            image={habitTracker}
           />
         </SwiperSlide>
-
         <SwiperSlide>
           <GlassCard
-            title="Frontend"
-            description="React • TypeScript • Next.js"
+            title="Habit Tracker"
+            description="Daily habit tracker"
             icons={[
               <FaReact key="react" />,
               <SiTypescript key="ts" />,
               <FaLaravel key="laravel" />,
             ]}
+            color="orange"
             href="https://github.com/ProfMthLuiz"
-            image="https://www.chromethemer.com/wallpapers/chromebook-wallpapers/images/960/db-super-chromebook-wallpaper.jpg"
+            image={habitTracker}
           />
         </SwiperSlide>
-
         <SwiperSlide>
           <GlassCard
-            title="Backend"
-            description="Laravel • PHP • MySQL"
+            title="Habit Tracker"
+            description="Daily habit tracker"
             icons={[
               <FaReact key="react" />,
               <SiTypescript key="ts" />,
               <FaLaravel key="laravel" />,
             ]}
+            color="orange"
             href="https://github.com/ProfMthLuiz"
-            image="https://www.chromethemer.com/wallpapers/chromebook-wallpapers/images/960/db-super-chromebook-wallpaper.jpg"
+            image={habitTracker}
           />
         </SwiperSlide>
-
         <SwiperSlide>
           <GlassCard
-            title="Backend"
-            description="Laravel • PHP • MySQL"
+            title="Habit Tracker"
+            description="Daily habit tracker"
             icons={[
               <FaReact key="react" />,
               <SiTypescript key="ts" />,
               <FaLaravel key="laravel" />,
             ]}
+            color="orange"
             href="https://github.com/ProfMthLuiz"
-            image="https://www.chromethemer.com/wallpapers/chromebook-wallpapers/images/960/db-super-chromebook-wallpaper.jpg"
+            image={habitTracker}
           />
         </SwiperSlide>
       </Swiper>
