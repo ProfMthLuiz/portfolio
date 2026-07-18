@@ -14,6 +14,9 @@
   --ux-shadow:
     rgba(5, 71, 17, 0) 40px 50px 25px -40px,
     rgba(5, 71, 17, 0.28) 0 25px 25px -5px;
+
+  --ux-small-shadow: rgba(5, 71, 17, 0.45) 0 8px 6px -5px;
+  --ux-large-shadow: rgba(5, 71, 17, 0.45) -5px 20px 12px 0;
 }
 
 .ux-parent--orange {
@@ -31,6 +34,9 @@
   --ux-shadow:
     rgba(120, 35, 5, 0) 40px 50px 25px -40px,
     rgba(120, 35, 5, 0.28) 0 25px 25px -5px;
+
+  --ux-small-shadow: rgba(251, 99, 52, 0.45) 0 8px 6px -5px;
+  --ux-large-shadow: rgba(251, 99, 52, 0.45) -5px 20px 12px 0;
 }
 
 .ux-parent {
@@ -251,7 +257,7 @@
   display: grid;
   place-content: center;
   cursor: pointer;
-  box-shadow: rgba(5, 71, 17, 0.45) 0 8px 6px -5px;
+  box-shadow: var(--ux-small-shadow);
   transition:
     transform 0.2s ease-in-out,
     box-shadow 0.2s ease-in-out,
@@ -288,7 +294,7 @@
 
 .ux-parent:hover .ux-project-btn {
   transform: translate3d(0, 0, 50px);
-  box-shadow: rgba(5, 71, 17, 0.25) -5px 20px 12px 0;
+  box-shadow: var(--ux-large-shadow);
 }
 
 .ux-more {
