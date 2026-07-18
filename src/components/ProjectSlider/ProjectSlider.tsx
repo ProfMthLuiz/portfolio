@@ -76,7 +76,7 @@ export default function ProjectSlider() {
               <FaLaravel key="laravel" />,
             ]}
             color="orange"
-            href="https://github.com/ProfMthLuiz"
+            href="https://github.com/ProfMthLuiz/habit-tracker"
             image={habitTracker}
           />
         </SwiperSlide>
@@ -90,7 +90,7 @@ export default function ProjectSlider() {
               <FaLaravel key="laravel" />,
             ]}
             color="orange"
-            href="https://github.com/ProfMthLuiz"
+            href="https://github.com/ProfMthLuiz/habit-tracker"
             image={habitTracker}
           />
         </SwiperSlide>
@@ -104,7 +104,7 @@ export default function ProjectSlider() {
               <FaLaravel key="laravel" />,
             ]}
             color="orange"
-            href="https://github.com/ProfMthLuiz"
+            href="https://github.com/ProfMthLuiz/habit-tracker"
             image={habitTracker}
           />
         </SwiperSlide>
@@ -118,7 +118,7 @@ export default function ProjectSlider() {
               <FaLaravel key="laravel" />,
             ]}
             color="orange"
-            href="https://github.com/ProfMthLuiz"
+            href="https://github.com/ProfMthLuiz/habit-tracker"
             image={habitTracker}
           />
         </SwiperSlide>
@@ -132,7 +132,7 @@ export default function ProjectSlider() {
               <FaLaravel key="laravel" />,
             ]}
             color="orange"
-            href="https://github.com/ProfMthLuiz"
+            href="https://github.com/ProfMthLuiz/habit-tracker"
             image={habitTracker}
           />
         </SwiperSlide>
@@ -146,7 +146,7 @@ export default function ProjectSlider() {
               <FaLaravel key="laravel" />,
             ]}
             color="orange"
-            href="https://github.com/ProfMthLuiz"
+            href="https://github.com/ProfMthLuiz/habit-tracker"
             image={habitTracker}
           />
         </SwiperSlide>

@@ -19,7 +19,7 @@
   padding: 7rem 2rem 5rem;
   background:
     linear-gradient(to top, rgba(10, 10, 10, 1), rgba(10, 10, 10, 0.1)),
-    url("../assets/hero-bg.jpg") no-repeat center/cover fixed;
+    url("../../assets/images/hero-bg.jpg") no-repeat center/cover fixed;
 }
 
 .hero::before {
